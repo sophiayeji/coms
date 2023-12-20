@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="venueRent">
+	<insert id ="insertVenueRent" parameterType="VenueRentDTO">
+		INSERT INTO
+				`VENUE_RENTAL` (
+					UUID,
+					MEMBER_ID,
+					REG_NM,
+					HP, 		
+					RENT_DT, 
+					RENT_T,
+					RENT_TIME, 
+					NUM_USE, 	
+					PURPOSE_USE, 
+					REG_DT, 	
+					APPROVAL_YN,
+					APPROVAL_DT,
+					CATEGORY 
+			)
+			VALUES (
+				#{uuid},
+				#{memberId},
+				#{regNm},
+				#{hp},
+				#{rentDt},
+				#{rentT},
+				#{rentTime},
+				#{numUse},
+				#{purposeUse},
+				NOW(),
+ 				#{approvalYn},
+ 				#{approvalDt},
+ 				#{category}
+			)
+	</insert>
+	<select id="selectOneMyInfo" parameterType="String" resultType="VenueRentDTO">
+		SELECT
+				*
+		FROM
+				VENUE_RENTAL
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>	
+	<select id="selectvenueRentList" resultType="VenueRentDTO">
+		SELECT
+				*
+		FROM
+				VENUE_RENTAL	
+	</select>	
+	<select id="selectOneAllOrderCnt" resultType="int">
+			SELECT
+					COUNT(*)
+			FROM
+					VENUE_RENTAL
+			WHERE
+					UUID	
+	</select>
+	<select id="selectOneOrder" parameterType="String" resultType="VenueRentDTO">
+		SELECT
+				*
+		FROM
+				VENUE_RENTAL
+		WHERE
+				UUID = #{uuid}
+	</select>	
+	
+	<update id="insertApprovalYn" parameterType="VenueRentDTO">
+		UPDATE
+				VENUE_RENTAL
+		SET		
+				CATEGORY = "venueRent",		
+				APPROVAL_YN	= #{approvalYn},
+				APPROVAL_DT = NOW()				
+		WHERE
+				UUID = #{uuid}
+	</update>
+	<resultMap type="hashMap" id= "paymentMap">
+		<result column="REG_NM"     	  		property="regNm"/>
+		<result column="MEMBER_ID"    		property="memberId"/>
+		<result column="UUID"    			property="uuid"/>
+		<result column="NUM_USE"    		property="numUse"/>
+		<result column="FINAL_PAYMENT"    	property="finalPayment"/>
+	</resultMap>
+		
+	<select id="selectPaymentList" resultMap='paymentMap'>
+		SELECT
+				REG_NM  					AS REG_NM,
+				MEMBER_ID					AS MEMBER_ID,
+				UUID						AS UUID,
+				NUM_USE						AS NUM_USE,
+				NUM_USE * 5000 +100000  	AS FINAL_PAYMENT
+		FROM 	
+				VENUE_RENTAL
+		WHERE
+				APPROVAL_YN	= 'Y'
+	</select>
+</mapper>

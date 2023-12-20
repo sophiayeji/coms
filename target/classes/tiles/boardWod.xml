@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/boardWod/addBoard" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/addBoard.jsp"/>
+ 		<put-attribute name="title" value="게시판 작성(관리자)"/>		
+ 	</definition>
+ 	
+ 	<definition name="/boardWod/boardList" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/boardList.jsp"/>
+ 		<put-attribute name="title" value="게시판 목록"/>		
+ 	</definition>
+ 	
+ 	<definition name="/boardWod/boardDetail" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/boardDetail.jsp"/>
+ 		<put-attribute name="title" value="게시판 상세"/>		
+ 	</definition>
+
+	<definition name="/boardWod/modifyBoard" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/modifyBoard.jsp"/>
+ 		<put-attribute name="title" value="게시판 수정(관리자)"/>		
+ 	</definition>
+ 	
+ 	<definition name="/boardWod/removeBoard" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/removeBoard.jsp"/>
+ 		<put-attribute name="title" value="게시판 삭제(관리자)"/>		
+ 	</definition>
+ 	
+ 	<definition name="/boardWod/boardListAdmin" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/boardListAdmin.jsp"/>
+ 		<put-attribute name="title" value="게시판 목록(관리자)"/>		
+ 	</definition>
+ 	
+ 	<definition name="/boardWod/boardDetailAdmin" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/common/wodBoard/boardDetailAdmin.jsp"/>
+ 		<put-attribute name="title" value="게시판 상세(관리자)"/>		
+ 	</definition>
+ 		
+
+</tiles-definitions>

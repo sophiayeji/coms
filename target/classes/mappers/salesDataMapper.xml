@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="salesData">
+	<resultMap type="hashmap" id="SalesDataThisMonthMap">
+		<result column="CATEGORY"     	  	property="category"/>
+		<result column="SALES_DATE"    		property="sales_data"/>
+		<result column="TOTAL_AMT" 			property="total_amt"/>
+		<result column="UUID"    			property="uuid"/>
+		<result column="GRAND_TOTAL"  		property="Grand_total"/>
+	</resultMap>
+
+	<select id ="selectListSalesDataThisMonth"  resultMap="SalesDataThisMonthMap">
+	SELECT 
+    	CATEGORY,
+    	LOG_DATE AS SALES_DATE,
+    	FORMAT(MEM_MON*200000, 0) AS TOTAL_AMT,
+    	UUID,
+    	null AS GRAND_TOTAL
+	FROM 
+		MEMBERSHIP 
+	UNION
+	SELECT 
+    	CATEGORY,
+    	LOG_DATE AS SALES_DATE,
+    	FORMAT(LOCKER_MON*10000, 0) AS TOTAL_AMT,
+    	UUID,
+    	null AS GRAND_TOTAL
+	FROM 
+		LOCKER
+	WHERE 
+		CATEGORY IS NOT NULL AND MONTH(LOG_DATE) = MONTH(now())
+	UNION
+	SELECT 
+    	CATEGORY,
+    	APPROVAL_DT AS SALES_DATE,
+    	FORMAT(EXP_NUM*25000, 0) AS TOTAL_AMT,
+    	UUID,
+    	null AS GRAND_TOTAL
+	FROM 
+		EXPERIENCE_CLASS
+	WHERE 
+		CATEGORY IS NOT NULL AND MONTH(APPROVAL_DT) = MONTH(now())
+	UNION
+	SELECT 
+    	CATEGORY,
+    	APPROVAL_DT AS SALES_DATE,
+    	FORMAT(RENT_T *30000, 0) AS TOTAL_AMT,
+    	UUID,
+    	null AS GRAND_TOTAL
+	FROM 
+		VENUE_RENTAL
+	WHERE 
+		CATEGORY IS NOT NULL AND MONTH(APPROVAL_DT) = MONTH(now())
+	UNION
+	SELECT 
+    	NULL AS CATEGORY,
+    	NULL AS SALES_DATE,
+    	NULL AS TOTAL_AMT,
+    	NULL AS UUID,
+    	FORMAT(SUM(TOTAL_AMT), 0) AS GRAND_TOTAL
+	FROM (
+    	SELECT 
+    		CATEGORY, LOG_DATE AS SALES_DATE, MEM_MON*200000 AS TOTAL_AMT
+    	FROM 
+    		MEMBERSHIP
+    	WHERE 
+    		CATEGORY IS NOT NULL
+    	UNION
+    	SELECT 
+    		CATEGORY, LOG_DATE AS SALES_DATE, LOCKER_MON*10000 AS TOTAL_AMT
+    	FROM 
+    		LOCKER
+    	UNION
+    	SELECT 
+    		CATEGORY, APPROVAL_DT AS SALES_DATE, EXP_NUM*25000 AS TOTAL_AMT
+    	FROM 
+    		EXPERIENCE_CLASS
+    	WHERE 
+    		CATEGORY IS NOT NULL
+    	UNION
+    	SELECT 
+    		CATEGORY, APPROVAL_DT AS SALES_DATE, RENT_T *30000 AS TOTAL_AMT
+    	FROM 
+    		VENUE_RENTAL
+    	WHERE 
+    		CATEGORY IS NOT NULL
+	) AS SUBQUERY;
+	</select>
+	
+	<resultMap type="hashmap" id="SalesDataThisYearMap">
+		<result column="SALES_MONTH"    		property="sales_month"/>
+		<result column="CATEGORY" 				property="category"/>
+		<result column="AMOUNT" 				property="amount"/>
+		<result column="GRAND_TOTAL"  		property="Grand_total"/>
+	</resultMap>
+		
+	<select id ="selectListSalesDataThisYear"  resultMap="SalesDataThisYearMap">
+	SELECT 
+    	CATEGORY,
+    	MONTH(LOG_DATE) AS SALES_MONTH,
+    	FORMAT(SUM(MEM_MON * 200000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+		MEMBERSHIP
+	WHERE 
+		CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+	GROUP BY 
+			CATEGORY, SALES_MONTH
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	MONTH(LOG_DATE) AS SALES_MONTH,
+    	FORMAT(SUM(LOCKER_MON * 10000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+		LOCKER
+	WHERE 
+		CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+	GROUP BY CATEGORY, SALES_MONTH
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	MONTH(APPROVAL_DT) AS SALES_MONTH,
+    	FORMAT(SUM(EXP_NUM * 25000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+		EXPERIENCE_CLASS
+	WHERE 
+		CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+	GROUP BY CATEGORY, SALES_MONTH
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	MONTH(APPROVAL_DT) AS SALES_MONTH,
+    	FORMAT(SUM(RENT_T * 30000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+		VENUE_RENTAL
+	WHERE 
+		CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+	GROUP BY 
+		CATEGORY, SALES_MONTH
+
+	UNION
+
+	SELECT 
+    	NULL AS CATEGORY,
+    	MONTH(LOG_DATE) AS SALES_MONTH,
+    	NULL AS AMOUNT,
+    	FORMAT(SUM(TOTAL_AMT), 0) AS GRAND_TOTAL
+	FROM (
+    	SELECT 
+    		CATEGORY, LOG_DATE, MEM_MON * 200000 AS TOTAL_AMT
+    	FROM 
+    		MEMBERSHIP
+    	WHERE 
+    		CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+    	
+    	UNION
+    	
+    	SELECT 
+    		CATEGORY, LOG_DATE, LOCKER_MON * 10000 AS TOTAL_AMT
+    	FROM 
+    		LOCKER
+    	WHERE 
+    		CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+   
+   		UNION
+   		
+    	SELECT 
+    		CATEGORY, APPROVAL_DT, EXP_NUM * 25000 AS TOTAL_AMT
+    	FROM 
+    		EXPERIENCE_CLASS
+    	WHERE 
+    		CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+    
+    	UNION
+    	
+    	SELECT 
+    		CATEGORY, APPROVAL_DT, RENT_T * 30000 AS TOTAL_AMT
+    	FROM 
+    		VENUE_RENTAL
+    	WHERE 
+    		CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+		) AS TOTAL_AMT
+		GROUP BY 
+			SALES_MONTH;	
+	</select>
+	
+	<resultMap type="hashmap" id="SalesDataYearlyMap">
+		<result column="SALES_YEAR"    		property="sales_year"/>
+		<result column="CATEGORY" 			property="category"/>
+		<result column="AMOUNT" 			property="amount"/>
+		<result column="GRAND_TOTAL"  		property="Grand_total"/>
+	</resultMap>
+		
+	<select id ="selectListSalesDataYearly"  resultMap="SalesDataYearlyMap">
+	SELECT 
+    	CATEGORY,
+   	 	YEAR(LOG_DATE) AS SALES_YEAR,
+    	FORMAT(SUM(MEM_MON * 200000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+    	MEMBERSHIP
+	WHERE 
+    	CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+	GROUP BY 
+    	CATEGORY, SALES_YEAR
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	YEAR(LOG_DATE) AS SALES_YEAR,
+    	FORMAT(SUM(LOCKER_MON * 10000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+    	LOCKER
+	WHERE 
+    	CATEGORY IS NOT NULL AND YEAR(LOG_DATE) = YEAR(NOW())
+	GROUP BY 
+    	CATEGORY, SALES_YEAR
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	YEAR(APPROVAL_DT) AS SALES_YEAR,
+    	FORMAT(SUM(EXP_NUM * 25000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL	
+	FROM 
+    	EXPERIENCE_CLASS
+	WHERE 
+    	CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+	GROUP BY 
+    	CATEGORY, SALES_YEAR
+
+	UNION
+
+	SELECT 
+    	CATEGORY,
+    	YEAR(APPROVAL_DT) AS SALES_YEAR,
+    	FORMAT(SUM(RENT_T * 30000), 0) AS AMOUNT,
+    	NULL AS GRAND_TOTAL
+	FROM 
+    	VENUE_RENTAL
+	WHERE 
+    	CATEGORY IS NOT NULL AND YEAR(APPROVAL_DT) = YEAR(NOW())
+	GROUP BY 
+    	CATEGORY, SALES_YEAR
+
+	UNION
+	
+	SELECT 
+    	NULL AS CATEGORY,
+    	NULL AS SALES_YEAR,
+    	NULL AS AMOUNT,
+    	FORMAT(SUM(TOTAL_AMT), 0) AS GRAND_TOTAL
+	FROM (
+    	SELECT 
+    		CATEGORY, YEAR(LOG_DATE) AS SALES_YEAR, MEM_MON*200000 AS TOTAL_AMT
+    	FROM 
+    		MEMBERSHIP
+    	WHERE 
+    		CATEGORY IS NOT NULL
+    		
+    	UNION
+    	
+    	SELECT 
+    		CATEGORY, YEAR(LOG_DATE) AS SALES_YEAR, LOCKER_MON*10000 AS TOTAL_AMT
+    	FROM 
+    		LOCKER
+    		
+    	UNION
+    	
+    	SELECT 
+    		CATEGORY, YEAR(APPROVAL_DT) AS SALES_YEAR, EXP_NUM*25000 AS TOTAL_AMT
+    	FROM 
+    		EXPERIENCE_CLASS
+    	WHERE 
+    		CATEGORY IS NOT NULL
+    		
+    	UNION
+    	
+    	SELECT 
+    		CATEGORY, YEAR(APPROVAL_DT) AS SALES_YEAR, RENT_T *30000 AS TOTAL_AMT
+    	FROM 
+    		VENUE_RENTAL
+    	WHERE 
+    		CATEGORY IS NOT NULL
+	) AS SUBQUERY;
+	</select>
+	
+	<resultMap type="hashmap" id="MemberAnalysis_thisyear_MonthlyMap">
+		<result column="RegisterMonth"  		property="registermonth"/>
+		<result column="RegisterNumber" 		property="registernumber"/>
+		<result column="NewMember" 				property="newmember"/>
+		<result column="ExpireMember"  			property="expiremember"/>
+		<result column="RatioNewMember"  		property="ratioNewMember"/>
+		<result column="RatioExpireMember"  	property="ratioExpireMember"/>
+	</resultMap>
+	
+	<select id ="selectSalesDataMemberAnalysis_thisyear_Monthly" resultMap='MemberAnalysis_thisyear_MonthlyMap'>
+	<![CDATA[
+	SELECT 
+    	MONTH(M.LOG_DATE) AS RegisterMonth,
+    	COUNT(CASE WHEN DATEDIFF(M.LOG_DATE, NOW()) <=30 THEN UUID END) AS RegisteredMemberships,
+    	COUNT(CASE WHEN DATEDIFF(G.LOG_DATE, NOW()) <= 30 THEN UUID END) AS NewMember,
+    	COUNT(CASE WHEN MEM_END_DT IS NOT NULL AND MEM_END_DT < NOW() THEN UUID END) AS ExpireMember,
+    	FORMAT(COUNT(CASE WHEN DATEDIFF(NOW(), G.LOG_DATE) <= 30 THEN M.UUID END) / COUNT(M.UUID) * 100, 2) AS RatioNewMember,
+		FORMAT(COUNT(CASE WHEN M.MEM_END_DT IS NOT NULL AND M.MEM_END_DT < NOW() THEN M.UUID END) / COUNT(M.UUID) * 100, 2) AS RatioExpireMember		   	
+	FROM 
+    	Membership M
+		JOIN GYM_MEMBER G 
+		ON M.MEMBER_ID = G.MEMBER_ID
+	WHERE 
+    	YEAR(M.LOG_DATE) = YEAR(NOW())
+	GROUP BY 
+    	MONTH(M.LOG_DATE)
+	ORDER BY 
+		MAX(M.MEM_END_DT) DESC;
+ 	]]>
+	</select>
+	
+	<resultMap type="hashmap" id="MemberAnalysis_YearlyMap">
+		<result column="RegisterYear"  			property="registerYear"/>
+		<result column="RegisterNumber" 		property="registernumber"/>
+		<result column="NewMember" 				property="newmember"/>
+		<result column="ExpireMember"  			property="expiremember"/>
+		<result column="RatioNewMember"  		property="ratioNewMember"/>
+		<result column="RatioExpireMember"  	property="ratioExpireMember"/>
+	</resultMap>
+		
+	<select id ="selectSalesDataMemberAnalysis_Yearly" resultMap='MemberAnalysis_YearlyMap'>
+	<![CDATA[
+	SELECT 
+    	YEAR(M.LOG_DATE) AS RegisterYear,
+    	COUNT(CASE WHEN DATEDIFF(M.LOG_DATE, NOW()) <= 365 THEN UUID END) AS RegisterNumber,
+    	COUNT(CASE WHEN DATEDIFF(G.LOG_DATE, NOW()) <= 365 THEN UUID END) AS NewMember,
+    	COUNT(CASE WHEN MEM_END_DT IS NOT NULL AND MEM_END_DT < NOW() THEN UUID END) AS ExpireMember,
+    	FORMAT(COUNT(CASE WHEN DATEDIFF(NOW(), G.LOG_DATE) <= 365 THEN M.UUID END) / COUNT(M.UUID) * 100, 2) AS RatioNewMember,
+    	FORMAT(COUNT(CASE WHEN M.MEM_END_DT IS NOT NULL AND M.MEM_END_DT < NOW() THEN M.UUID END) / COUNT(M.UUID) * 100, 2) AS RatioExpireMember
+	FROM 
+    	Membership M
+		JOIN GYM_MEMBER G 
+		ON M.MEMBER_ID = G.MEMBER_ID
+	WHERE 
+    	YEAR(M.LOG_DATE) = YEAR(NOW())
+	GROUP BY 
+    	YEAR(M.LOG_DATE)
+	ORDER BY 
+    	MAX(M.MEM_END_DT) DESC; 
+	]]>	
+	</select>
+</mapper>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Membership">
+	<insert id ="insertGymMembership" parameterType="GymMembershipDTO">
+		INSERT INTO
+				`MEMBERSHIP` (
+					NAME,		
+					MEMBER_ID, 		
+					UUID,		
+					MEM_START_DT, 
+					MEM_END_DT,
+					MEM_MON, 
+					PAYMENT_AMT,		
+					PAYMENT_DT,		
+					PAYMENT_METH,	
+					LOG_DATE,
+					CATEGORY						
+		)						 
+		VALUES (
+				#{name},
+				#{memberId},
+				#{uuid},
+				#{memStartDt},
+				#{memEndDt},		
+				#{memMon},
+				#{paymentAmt},
+				#{paymentDt},
+				#{paymentMeth},
+				NOW(),
+				"membership"				
+			)
+</insert>
+	<resultMap type="hashMap" id= "paymentMap">
+		<result column="NAME"     	  		property="name"/>
+		<result column="MEMBER_ID"    		property="memberId"/>
+		<result column="GYM_PAYMENT_DT" 	property="gymPaymentDt"/>
+		<result column="GYM_PAYMENT_AMT"    property="gymPaymentAmt"/>
+		<result column="LOCKER_PAYMENT_DT"  property="lockerPaymentDt"/>
+		<result column="LOCKER_PAYMENT_AMT" property="locekrPaymentAmt"/>
+	</resultMap>
+	
+<select id ="selectListPaymentHistory" parameterType="hashMap" resultMap='paymentMap'>
+		SELECT
+				M.NAME			AS NAME,
+				M.MEMBER_ID		AS MEMBER_ID,
+				M.PAYMENT_DT	AS GYM_PAYMENT_DT,
+				M.PAYMENT_AMT	AS GYM_PAYMENT_AMT,
+				L.PAYMENT_DT    AS LOCKER_PAYMENT_DT,
+				L.PAYMENT_AMT   AS LOCKER_PAYMENT_AMT
+		FROM
+				  MEMBERSHIP M
+		  	JOIN  LOCKER L
+				ON M.MEMBER_ID = L.MEMBER_ID
+		WHERE
+				M.MEMBER_ID LIKE CONCAT('%', #{keyword} , '%')
+		ORDER BY
+				M.PAYMENT_DT DESC	
+	</select>
+
+<select id="selectListExpireScheduled" resultType="GymMembershipDTO">
+	SELECT 
+			*
+    FROM
+    	  MEMBERSHIP 	
+    WHERE
+    	MEM_END_DT =  date(DATE_ADD(NOW(), INTERVAL 7 DAY))
+    	
+	</select>
+	
+	<resultMap type="hashMap" id="expiredMemberListMap">
+		<result column="NAME"     	  		property="name"/>
+		<result column="MEMBER_ID"    		property="memberId"/>
+		<result column="LAST_EXPRIED_DATE" 	property="lastExpiredDate"/>
+		<result column="HP"    				property="hp"/>
+	</resultMap>
+		
+<select id ="selectListexpiredMemberList" resultMap='expiredMemberListMap'>
+	SELECT
+			M.NAME 			AS NAME,
+			M.MEMBER_ID		AS MEMBER_ID,
+			M.MEM_END_DT	AS LAST_EXPRIED_DATE,
+			G.HP			AS HP				
+	FROM
+		MEMBERSHIP 	M
+	 JOIN GYM_MEMBER G
+	 	ON M.MEMBER_ID = G.MEMBER_ID
+	WHERE
+		NOW() > M.MEM_END_DT
+	ORDER BY
+		M. MEM_END_DT DESC 	 
+</select>
+</mapper>

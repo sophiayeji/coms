@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/expClass/reserveExpClass" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/experience_class/reserveExpClass.jsp"/>
+ 		<put-attribute name="title" value="체험수업 신청"/>		
+ 	</definition>
+ 	
+ 	<definition name="/expClass/notifyReserve" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/experience_class/notifyReserve.jsp"/>
+ 		<put-attribute name="title" value="체험수업 안내"/>		
+ 	</definition>
+ 
+ 	<definition name="/admin/expclass/approve" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/experience_class/approvalList.jsp"/>
+ 		<put-attribute name="title" value="체험수업 신청 리스트"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/expclass/detail" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/experience_class/detail.jsp"/>
+ 		<put-attribute name="title" value="체험수업 신청 상세"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/expclass/paymentHistory" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/experience_class/paymentHistory.jsp"/>
+ 		<put-attribute name="title" value="체험수업 결제 내역"/>		
+ 	</definition>
+  
+</tiles-definitions>
+

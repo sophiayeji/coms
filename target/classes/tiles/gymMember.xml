@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/admin/gymMember/newRegister" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/gymMember/newRegister.jsp"/>
+ 		<put-attribute name="title" value="신규회원 등록"/>	
+ 	</definition>
+	
+	<definition name="/admin/gymMember/gymMemberSearch" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/gymMember/gymMemberSearch.jsp"/>
+ 		<put-attribute name="title" value="회원기본정보 조회"/>	
+ 	</definition>
+ 		
+ </tiles-definitions>
+ 
+ 

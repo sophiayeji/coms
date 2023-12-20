@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="contact">
+
+	<insert id="insertContact" parameterType="ContactDTO">
+		INSERT INTO CONTACT(
+				UUID,
+				NAME,
+				HP,
+				SUBJECT,
+				CONTENT,
+				REG_DT
+		)
+		VALUES (
+				#{uuid},
+				#{name},
+				#{hp},
+				#{subject},
+				#{content},
+				NOW()
+		)
+	</insert>
+	<select id="selectListContact" resultType="ContactDTO">
+		SELECT
+				*
+		FROM
+				CONTACT
+		ORDER BY
+				REG_DT DESC
+	</select>
+	
+	<select id="selectOneContact" parameterType="String" resultType="ContactDTO">
+		SELECT
+				*
+		FROM
+				CONTACT
+		WHERE
+				UUID = #{uuid}
+	</select>
+	<delete id="deleteContact" >
+		DELETE FROM
+				CONTACT
+		WHERE
+				UUID IN 
+		<foreach collection="array" item="uuid" separator="," open="("  close=")" >
+				#{uuid}
+		</foreach>
+	</delete>	
+</mapper>

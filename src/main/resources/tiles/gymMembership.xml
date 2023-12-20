@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>	
+	<definition name="/admin/membership/signup" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/membership/signup.jsp"/>
+ 		<put-attribute name="title" value="멤버십 등록"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/membership/paymentHistory" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/membership/paymentHistory.jsp"/>
+ 		<put-attribute name="title" value="회원결제 내역"/>		
+ 	</definition>
+ 		
+ 	<definition name="/admin/membership/expireScheduledList" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/membership/expireScheduled.jsp"/>
+ 		<put-attribute name="title" value="만료예정 회원 내역"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/membership/expiredMemberList" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/membership/expriedMemberList.jsp"/>
+ 		<put-attribute name="title" value="만료회원 내역"/>		
+ 	</definition>
+ </tiles-definitions>
+ 
+ 

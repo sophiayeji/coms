@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">	
+
+<configuration>
+
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.application.coms.webmember.dto.WebMemberDTO" alias="WebMemberDTO" />
+		<typeAlias type="com.application.coms.expclass.dto.ExpClassDTO" alias="ExpClassDTO" />
+		<typeAlias type="com.application.coms.venuerent.dto.VenueRentDTO" alias="VenueRentDTO" />
+		<typeAlias type="com.application.coms.board.dto.BoardWodDTO" alias="BoardWodDTO" />
+		<typeAlias type="com.application.coms.admin.gymmember.dto.GymMemberDTO" alias="GymMemberDTO" />
+		<typeAlias type="com.application.coms.admin.recess.dto.RecessDTO" alias="RecessDTO" />
+		<typeAlias type="com.application.coms.admin.locker.dto.LockerDTO" alias="LockerDTO" />
+		<typeAlias type="com.application.coms.admin.gymMembership.dto.GymMembershipDTO" alias="GymMembershipDTO" />
+		<typeAlias type="com.application.coms.admin.gymmemberpic.dto.GymMemberPicDTO" alias="GymMemberPicDTO" />
+		<typeAlias type="com.application.coms.contact.dto.ContactDTO" alias="ContactDTO" />
+	</typeAliases>
+
+</configuration>

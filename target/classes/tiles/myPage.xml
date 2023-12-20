@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/myPage/myInfo" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/myPage/myInfo.jsp"/>
+ 		<put-attribute name="title" value="내정보 조회"/>		
+ 	</definition>
+ 	
+ 	
+	<definition name="/myPage/myExpClass" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/myPage/myExpClass.jsp"/>
+ 		<put-attribute name="title" value="체험수업 신청 조회"/>		
+ 	</definition>
+ 	
+ 	<definition name="/myPage/myVenueRent" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/myPage/myVenueRent.jsp"/>
+ 		<put-attribute name="title" value="대관 신청 조회"/>				
+ 	</definition>
+ 	
+ 	<definition name="/webmember/notifyModify" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/myPage/notifyModify.jsp"/>
+ 		<put-attribute name="title" value="회원정보 수정"/>		
+ 	</definition>
+ 	
+ 	<definition name="/webmember/removeWebMember" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/myPage/notifyRemove.jsp"/>
+ 		<put-attribute name="title" value="회원탈퇴 완료"/>		
+ 	</definition>
+ 
+</tiles-definitions>

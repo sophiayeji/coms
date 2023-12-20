@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Locker">
+
+	<insert id ="insertLocker" parameterType="lockerDTO">
+		INSERT INTO
+				`LOCKER` (
+					NAME,			
+					MEMBER_ID, 		
+					LockerNum,		
+					UUID,			
+					LOCKER_START_DATE,		
+					LOCKER_END_DATE,	
+					LOCKER_MON,		
+					PAYMENT_AMT,		
+					PAYMENT_DT,		
+					PAYMENT_METHOD,	
+					LOG_DATE,
+					CATEGORY		
+		)						 
+		VALUES (
+				#{name},
+				#{memberId},
+				#{lockerNum},
+				#{uuid},
+				#{lockerStartDt},
+				#{lockerEndDt},
+				#{lockerMon},
+				#{paymentAmt},
+				#{paymentDt},
+				#{paymentMethod},
+				NOW(),
+				"locker"
+			)
+</insert>
+<select id="SearchLocker" parameterType="HashMap" resultType="LockerDTO" >
+			SELECT 
+		   			*
+		    FROM 
+					LOCKER
+			WHERE
+					MEMBER_ID LIKE CONCAT('%', #{keyword} , '%')
+			ORDER BY
+					LOCKER_START_DATE DESC 
+	</select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/admin/salesData/SalesData_thisMonth" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/salesData/salesDataThisMonth.jsp"/>
+ 		<put-attribute name="title" value="관리자모드"/>		
+ 	</definition>
+ 	
+ 	
+ 	<definition name="/admin/salesData/SalesData_thisYear" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/salesData/salesDataThisYear.jsp"/>
+ 		<put-attribute name="title" value="관리자모드"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/salesData/SalesData_yearly" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/salesData/salesDataYearly.jsp"/>
+ 		<put-attribute name="title" value="관리자모드"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/salesData/MemberAnalysis_thisYear" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/salesData/salesDataMemberanalysisThisYear.jsp"/>
+ 		<put-attribute name="title" value="관리자모드"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/salesData/MemberAnalysisYearly" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/salesData/salesDataMemberanalysisYearly.jsp"/>
+ 		<put-attribute name="title" value="관리자모드"/>		
+ 	</definition>
+ 	
+ 
+</tiles-definitions>
+
+

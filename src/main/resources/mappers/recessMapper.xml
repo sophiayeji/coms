@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Recess">
+
+	<insert id ="insertRegister" parameterType="RecessDTO">
+		INSERT INTO
+				`RECESS` (
+					NAME,		
+					MEMBER_ID, 	
+					UUID,		
+					RECESS_START_DT, 
+					RECESS_END_DT, 
+					REG_RESTART_DT,  
+					REG_RESTART_END_DT,  
+					LOG_DATE		
+		)						 
+		VALUES (
+				#{name},
+				#{memberId},
+				#{uuid},
+				#{recessStartDt},
+				#{recessEndDt},
+				#{regRestartDt},
+				#{regRestartEndDt},
+				NOW()
+				)
+
+</insert>
+	<select id="selectRecessMemberList" resultType="RecessDTO">
+	SELECT
+			*
+	FROM
+			RECESS	
+	</select>
+<select id ="selectOneMemberId" parameterType="String" resultType="GymMembershipDTO">
+	SELECT
+			MEMBER_ID
+	FROM
+			GYM_MEMBER		
+	WHERE
+		MEMBER_ID = #{memberId}			
+	</select>
+</mapper>

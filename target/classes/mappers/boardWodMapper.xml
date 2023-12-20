@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="boardWod">
+	<insert id = "insertBoard" parameterType="BoardWodDTO"> 
+		INSERT INTO 
+					BOARD_WOD (
+			SUBJECT,
+			WRITER,	
+			CONTENT
+				
+		)
+		VALUES(
+			#{subject},
+			#{writer},
+			#{content}
+							
+		)	
+	</insert>
+	<update id="updateReadCnt" parameterType="String" >
+	UPDATE
+			BOARD_WOD	
+	SET
+			READ_CNT = READ_CNT + 1
+	WHERE
+			SUBJECT = #{subject}	
+	</update>
+	<update id ="updateBoard" parameterType="BoardWodDTO">
+	UPDATE
+			BOARD_WOD
+	SET			
+			WRITER = #{writer},
+			CONTENT = #{content},
+			ENROLL_DT = NOW()
+	WHERE
+			SUBJECT = #{subject}		
+	</update>	
+
+	<select id="selectOneAllBoardCnt" parameterType="hashmap" resultType="int">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT 
+								COUNT(*) 
+						FROM 
+								BOARD_WOD
+					</when>
+					<otherwise>
+						SELECT 
+								COUNT(*) 
+						FROM 
+								BOARD_WOD
+						WHERE
+								SUBJECT LIKE CONCAT('%',#{searchWord},'%') OR 
+								WRITER LIKE CONCAT('%',#{searchWord},'%')
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT 
+						COUNT(*) 
+				FROM 
+						BOARD_WOD
+				WHERE
+					<if test='searchKeyword.equals("writer")'>
+						WRITER LIKE CONCAT('%' , #{searchWord} , '%')
+					</if>
+					<if test='searchKeyword.equals("subject")'>
+						SUBJECT LIKE CONCAT('%' , #{searchWord} , '%')
+					</if>
+			</otherwise>
+		</choose>	
+	</select>
+	
+	<select id="selectOneBoard" parameterType="String" resultType="BoardWodDTO">
+		SELECT
+				*
+		FROM
+				BOARD_WOD
+		WHERE
+				SUBJECT = #{subject}
+	</select>
+	<select id="selectListBoard" parameterType="hashmap" resultType="BoardWodDTO">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT
+								*
+						FROM
+								BOARD_WOD
+						ORDER BY
+								ENROLL_DT DESC
+						LIMIT 
+								#{startBoardIdx},#{onePageViewCnt}
+					</when>
+					<otherwise>
+						SELECT 
+								*
+						FROM
+								BOARD_WOD
+						WHERE
+								SUBJECT LIKE CONCAT('%' , #{searchWord} , '%') OR
+								WRITER LIKE CONCAT('%' , #{searchWord} , '%')
+						ORDER BY
+								ENROLL_DT DESC
+						LIMIT 
+								#{startBoardIdx},#{onePageViewCnt}
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT
+						*
+				FROM
+						BOARD_WOD
+				WHERE
+					<if test='searchKeyword.equals("writer")'>
+						WRITER LIKE CONCAT('%' , #{searchWord} , '%')
+					</if>
+					<if test='searchKeyword.equals("subject")'>
+						SUBJECT LIKE CONCAT('%' , #{searchWord} , '%')
+					</if>
+				ORDER BY
+						ENROLL_DT DESC
+				LIMIT
+						#{startBoardIdx} , #{onePageViewCnt}
+			</otherwise>
+		</choose>
+	</select>
+	<delete id="deleteBoard" parameterType="BoardWodDTO">
+		DELETE FROM 
+			    BOARD_WOD
+		WHERE
+			SUBJECT = #{subject}	   
+	</delete>
+	
+
+	</mapper>
+
+	
+
+	
+	

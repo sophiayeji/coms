@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 	<tiles-definitions>
+		 <definition name="/contact/addContact" extends="default">
+ 			<put-attribute name="body" value="/WEB-INF/views/client/contact/addContact.jsp"/>
+ 			<put-attribute name="title" value="Contact-Crossfit Genio"/>		
+ 		</definition>
+ 
+ 	<definition name="/contact/notifyResister" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/client/contact/notifyRegister.jsp"/>
+ 		<put-attribute name="title" value="Contact-Crossfit Genio"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/contact/contactList" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/contact/contactList.jsp"/>
+ 		<put-attribute name="title" value="Contact List-Crossfit Genio"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/contact/contactDetail" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/contact/contactDetail.jsp"/>
+ 		<put-attribute name="title" value="Contact Detail-Crossfit Genio"/>		
+ 	</definition>
+ 	
+ 	<definition name="/admin/contact/contactReply" extends="default">
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/contact/contactReply.jsp"/>
+ 		<put-attribute name="title" value="Contact Reply-Crossfit Genio"/>		
+ 	</definition>
+ 	</tiles-definitions>
