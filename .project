@@ -46,7 +46,7 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>github/workflow/build-and-deploy.yml</name>
+			<name>github/work/build-and-deploy.yml</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/build-and-deploy.yml</locationURI>
 		</link>
