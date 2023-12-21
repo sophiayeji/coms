@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.coms.admin.gymMembership.dto.GymMembershipDTO;
@@ -76,7 +77,7 @@ public class GymMembershipController {
 	
 	@Scheduled (cron="0 0 15 * * *")	 //@Scheduled(cron="0 0 0 ? * SUN")	 	 > 매주 일요일 15시에 실행
 	@GetMapping("/expireScheduledList")
-	public ModelAndView expireScheduledList(HttpServletRequest request) throws Exception {
+	public ModelAndView expireScheduledList() throws Exception {
 		
 		ModelAndView mv = new ModelAndView();  			
 		mv.setViewName("/admin/membership/expireScheduledList");
