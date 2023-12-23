@@ -25,9 +25,10 @@
  
 <2>개발환경     
        <li>주요 개발자원(H/W)</li>
-       ![image](https://github.com/sophiayeji/coms/assets/125880712/023c4a6a-af82-48cb-8c07-50dd87534cc2)
+       ![image](https://github.com/sophiayeji/coms/assets/125880712/09e869a6-0257-431b-92d1-27145a2c2f96)
 	<li>주요 개발자원(S/W)</li>
-      
+      ![image](https://github.com/sophiayeji/coms/assets/125880712/bfb756d7-e17c-4441-b97a-11121e743253)
+
 
 
    
