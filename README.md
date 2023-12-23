@@ -36,9 +36,10 @@
 	    승인 기능은 ExpClassManageController 클래스의 일부로, 특히 /admin/expclass 매핑 내에 위치한다. 이 기능은 /approve 엔드포인트를 통해 액세스되며, 
             여기서 관리자는 대기 중인 수업 요청 목록을 볼 수 있으며, 이를 승인 또는 거부하고 각 주문에 대한 자세한 정보를 검토 할 수 있다. 
 	    
-	   
+	    // 동영상 
+            // 도표를 그리자! 
 	    ExpClassServiceImpl 클래스의 addApprovalYn 메서드는 데이터베이스에서 승인 상태를 업데이트하는 역할을 합니다.
-		ExpClassDAOImpl 클래스의 insertApprovalYn 메서드는 EXPERIENCE_CLASS 테이블의 APPROVAL_YN 필드를 수정하기 위한 SQL 업데이트 문을 실행함으로, 승인여부를 업데이트 할 수 있다. 
+	    ExpClassDAOImpl 클래스의 insertApprovalYn 메서드는 EXPERIENCE_CLASS 테이블의 APPROVAL_YN 필드를 수정하기 위한 SQL 업데이트 문을 실행함으로, 승인여부를 업데이트 할 수 있다. 
 	   
 
    
