@@ -5,8 +5,8 @@
 
 	1.개요
 	2.개발환경 
- 		H/W
-   		S/W	
+ 		주요 개발자원 H/W
+   		주요 개발자원 S/W	
 	3.핵심키워드
 	4.시스템아키텍쳐
 	5.E-R 다이어그램
@@ -27,6 +27,10 @@
        ![image](https://github.com/sophiayeji/coms/assets/125880712/09e869a6-0257-431b-92d1-27145a2c2f96)
 	<li>주요 개발자원(S/W)</li>
       ![image](https://github.com/sophiayeji/coms/assets/125880712/bfb756d7-e17c-4441-b97a-11121e743253)
+
+<3> 핵심 키워드 
+
+<6> 프로그램 목적 
 
 
 
