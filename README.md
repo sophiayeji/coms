@@ -38,6 +38,8 @@
 	    
 	    // 동영상 
             // 도표를 그리자! 
+	    ![image](https://github.com/sophiayeji/coms/assets/125880712/bf4d5bcc-8f69-4a25-b577-0d5037b64922)
+
 	    ExpClassServiceImpl 클래스의 addApprovalYn 메서드는 데이터베이스에서 승인 상태를 업데이트하는 역할을 합니다.
 	    ExpClassDAOImpl 클래스의 insertApprovalYn 메서드는 EXPERIENCE_CLASS 테이블의 APPROVAL_YN 필드를 수정하기 위한 SQL 업데이트 문을 실행함으로, 승인여부를 업데이트 할 수 있다. 
 	   
