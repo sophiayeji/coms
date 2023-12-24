@@ -20,6 +20,8 @@
 <1>개요
 	<li>프로젝트명: Amazon Web Service 기반 크로스핏 체육관 운영 시스템 구축 프로젝트</li>
 	<li>수행기간: 2023년 07월 06일 ~ 2023년 08월 02일</li>
+ 	<li> 사이트주소: www.crossfitgenio.com (클라이언트)
+   			www.crossfitgenio.com/admin/adminLogin (어드민)
 
  
 <2>개발환경     
