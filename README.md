@@ -38,10 +38,15 @@
 	    ![image](https://github.com/sophiayeji/coms/assets/125880712/bf4d5bcc-8f69-4a25-b577-0d5037b64922)
             ![image](https://github.com/sophiayeji/coms/assets/125880712/238aed18-faa1-4fd2-bf22-21069d854d9b)
             ExpClasService 클래스의 addApprovalYn 메서드: 데이터베이스에서 승인 상태를 업데이트하는 역할을 한다.
-	    ExpClassDAO 클래스의 insertApprovalYn 메서드: EXPERIENCE_CLASS 테이블의 APPROVAL_YN 필드를 수정하기 위한 SQL 업데이트 문을 실행함으로, 승인여부를 업데이트 할 수 있다.
-     
-	<li>공지사항 게시판 기능 구현(게시판 작성 관리자 제한)</li>
- 
+	    ExpClassDAO 클래스의 insertApprovalYn 메서드: EXPERIENCE_CLASS 테이블의 APPROVAL_YN 필드를 수정하기 위한 SQL 업데이트 문을 실행함으로, 승인여부를 업데이트 할 수 있다.<br><br>         
+      <li>공지사항 게시판 기능 구현(게시판 작성 관리자 제한)</li>
+        클라이언트와 관리자 간의 알림판 사용에 대한 제한된 기능을 구현하여, 관리자는 게시글을 작성, 편집, 삭제할 수 있으며, 클라이언트는 게시글을 읽을 수만 있다.<br>
+         **관리자 권한 확인**: WebMemberService를 이용하여 로그인한 사용자의 권한을 확인하며, AdminMemberController에서 로그인한 사용자의 세션에 관리자 권한이 있는 경우에만 
+	                      접근이 허용이 된다.<br>
+         **게시글 수정 및 삭제 권한 제한** : BoardWodController에서 게시글 수정 및 삭제 시 관리자 여부를 확인하여 해당 권한이 없는 경우 접근이 차단된다.
+                                          더불어, 게시판 목록 및 상세내역 JSP를 클라이언트와 관리자용으로 따로 만들어 관리자용 JSP에만 게시판 작성,수정,삭제 기능을
+                                          넣어 외부에서 게시판 권한을 보호할 수 있도록 하였다. 
+
  
 
    
