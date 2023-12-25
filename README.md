@@ -53,6 +53,22 @@
        스프링 AOP 기술을 사용하여 AdminMemberController를 포인트를 찍고 매서드의 종류, 어드바이즈메서드에 대한 설명, 대상객체를 찍어서 관리자 로그인 활동의 상세한 레코드를 제공함으로써 
        정기적인 모니터링을 할 수 있게 구현했다.
        ![image](https://github.com/sophiayeji/coms/assets/125880712/3bd61046-2edb-49db-b1e5-2f1d18912cc6.gif)
+       <li>신규회원 회원고유 번호 자동생성</li>
+       고유 회원 ID 생성은 GymMembershipController 클래스 내에서 UUID.randomUUID().toString()를 사용하여 
+       UUID(범용고유식별자)를 생성하여, DTO객체의 UUID필드에 저장될 수 있도록 설정하였다.
+ 	<li>Transaction 기능을 사용하여, 회원 추가 정보 등록 시 정보의 일관성, 무결성 구현</li>
+       체욱관의 회원등록 정보, 휴회신청, 사물함, 회원사진 정보추가를 위한 트랜잭션 기능은 고유회원ID를 확인하여 정보를 등록할 수 있게 하여 
+       데이터의 무결성과 일관성을 보장할 수 있게 한다.@Transactional 어노테이션과 rollback 속성을 사용하여 트랜잭션을 관리하고, 
+       예외발생 시 롤밸을 처리하게 하였다.더불어, 향 후 체육관 회원이 증가함에 따라 트랜잭션 관리가 시스템 성능에 미치는 영향을 평가하여
+       개선해봐야 겠다.<br>
+       -고유회원번호에 없는 정보를 회원아이디로 입력했을 예외의 경우 아래와 같이 롤백이 처리가 됨-
+      ![image](https://github.com/sophiayeji/coms/assets/125880712/16199022-87bc-4fc5-af79-f666099cb333)
+      <li>회원관리를 위한 조회기능(관리자페이지)</li>
+      ![image](https://github.com/sophiayeji/coms/assets/125880712/3006da5a-441b-4feb-bf09-5b608d6bd4e2)
+
+
+
+	
       
        
 
