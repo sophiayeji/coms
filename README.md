@@ -69,8 +69,8 @@
 	데이터 기반 의사 결정을 지원하며 비즈니스 전략을 최적화하는 데 도움이 되는 역할을 한다. 각 항목별로 해당쿼리는 아래와 같다.
        <li>Session을 이용한 회원/관리자 전용 페이지 구현(역할 기반 액세스 제어 (RBAC) )</li>
         클라이언트와 관리자의 각 역할에 대해 액세스해야 하는 특정 기능과 페이지를 식별하는 것을 구현하였다.<br>
-	Admin: 회원 등록, 매출 관리, 시설 예약과 같은 다양한 관리 기능에 액세스<br>
-	Client: 개인 정보, 체험, 장소 예약에 대한 액세스<br>
+		Admin: 회원 등록, 매출 관리, 시설 예약과 같은 다양한 관리 기능에 액세스<br>
+		Client: 개인 정보, 체험, 장소 예약에 대한 액세스<br>
  	우선 WebMemberController에서 로그인 프로세스에서 세션의 사용자의 역할을 설정했으며, JSP에서 <c:choose> 및 <c:when>을 사용하여 
 	다양한 역할에 대한 메뉴 항목을 조건부로 표시하여 사용자의 역할에 따라 메뉴를 동적으로 렌더링 하였다. 
  	![Controller 코드](https://github.com/sophiayeji/coms/blob/master/src/main/java/com/application/coms/webmember/controller/WebMemberController.java)
