@@ -5,12 +5,14 @@
 	<insert id = "insertBoard" parameterType="BoardWodDTO"> 
 		INSERT INTO 
 					BOARD_WOD (
+			UUID,
 			SUBJECT,
 			WRITER,	
 			CONTENT
 				
 		)
 		VALUES(
+			#{uuid},
 			#{subject},
 			#{writer},
 			#{content}
@@ -23,7 +25,7 @@
 	SET
 			READ_CNT = READ_CNT + 1
 	WHERE
-			SUBJECT = #{subject}	
+			UUID = #{uuid}	
 	</update>
 	<update id ="updateBoard" parameterType="BoardWodDTO">
 	UPDATE
@@ -33,7 +35,7 @@
 			CONTENT = #{content},
 			ENROLL_DT = NOW()
 	WHERE
-			SUBJECT = #{subject}		
+			UUID = #{uuid}		
 	</update>	
 
 	<select id="selectOneAllBoardCnt" parameterType="hashmap" resultType="int">
@@ -79,7 +81,7 @@
 		FROM
 				BOARD_WOD
 		WHERE
-				SUBJECT = #{subject}
+				UUID = #{uuid}
 	</select>
 	<select id="selectListBoard" parameterType="hashmap" resultType="BoardWodDTO">
 		<choose>
@@ -133,7 +135,7 @@
 		DELETE FROM 
 			    BOARD_WOD
 		WHERE
-			SUBJECT = #{subject}	   
+			UUID = #{uuid}	   
 	</delete>
 	
 

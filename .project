@@ -46,9 +46,29 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>github/workflow/build-and-deploy.yml</name>
+			<name>src/main/webapp/resources/img/TimeTable.png</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/build-and-deploy.yml</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%82%AC%EC%A7%84%EC%9E%90%EB%A3%8C/TimeTable.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/img/main2.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%82%AC%EC%A7%84%EC%9E%90%EB%A3%8C/main2.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/img/main4.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%82%AC%EC%A7%84%EC%9E%90%EB%A3%8C/main4.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/img/main5.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%82%AC%EC%A7%84%EC%9E%90%EB%A3%8C/main5.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/img/main6.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/OneDrive/Desktop/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%82%AC%EC%A7%84%EC%9E%90%EB%A3%8C/main6.png</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

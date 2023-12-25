@@ -15,27 +15,21 @@
             <div class="col-lg-4 col-md-6 col-sm-7">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="./index.html"><<img src="${contextPath }/resources/bootstrap/img/logo.png" alt=""></a>
+                        <a style="font-size :30px">Crossfit Genio</a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    cilisis.</p>
-                    <div class="footer__payment">
-                        <a href="#"><img src="${contextPath }/resources/bootstrap/img/payment/payment-1.png" alt=""></a>
-                        <a href="#"><img src="${contextPath }/resources/bootstrap/img/payment/payment-2.png" alt=""></a>
-                        <a href="#"><img src="${contextPath }/resources/bootstrap/img/payment/payment-3.png" alt=""></a>
-                        <a href="#"><img src="${contextPath }/resources/bootstrap/img/payment/payment-4.png" alt=""></a>
-                        <a href="#"><img src="${contextPath }/resources/bootstrap/img/payment/payment-5.png" alt=""></a>
-                    </div>
+                    <p>The greatest battle is not physical, but psychological.
+						The demons telling us to give up when we push ourselves to the limit
+						can never be silenced for good. </p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-5">
                 <div class="footer__widget">
                     <h6>Quick links</h6>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="${contextPath }/expClass/reserveExpClass">체험수업</a></li>
+                        <li><a href="${contextPath }/venueRental/reserveVenue">대관신청</a></li>
+                        <li><a href="${contextPath }/boardWod/boardList">게시판</a></li>
+                        <li><a href="${contextPath}/contact/addContact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,23 +37,21 @@
                 <div class="footer__widget">
                     <h6>Account</h6>
                     <ul>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Orders Tracking</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="/coms/myPage/myInfo?memberId=${sessionScope.memberId}">My Info</a></li>
+                        <li><a href="/coms/myPage/myExpClass?memberId=${sessionScope.memberId}">체험수업</a></li>
+                        <li><a href="/coms//myPage/myVenueRent?memberId=${sessionScope.memberId}">대관</a></li>
                     </ul>
                 </div>
             </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="footer__widget">
+                    <h6>Privacy Policies</h6>
+                 </div>
             <div class="col-lg-4 col-md-8 col-sm-8">
-                <div class="footer__newslatter">
-                    <a href="${contextPath }/coms/webmember/adminLogin"><h6>ADMIN</h6>
-            	</div>
                     <div class="footer__social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-youtube-play"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.application.coms.board.dto.BoardWodDTO;
 import com.application.coms.board.wod.dao.BoardWodDAO;
+import com.application.coms.webmember.dao.WebMemberDAO;
+import com.application.coms.webmember.dto.WebMemberDTO;
 
 
 @Service
@@ -15,6 +17,9 @@ public class BoardWodServiceImpl implements BoardWodService {
 	
 	@Autowired				
 	private BoardWodDAO boardWodDAO;
+	
+	@Autowired				
+	private WebMemberDAO webMemberDAO;
 	
 	@Override
 	public List<BoardWodDTO> getBoardList(Map<String, Object> searchMap) throws Exception {
@@ -32,21 +37,26 @@ public class BoardWodServiceImpl implements BoardWodService {
 	}
 
 	@Override
-	public BoardWodDTO getBoardDetail(String subject, boolean isIncreaseReadCnt) throws Exception {
+	public BoardWodDTO getBoardDetail(String uuid, boolean isIncreaseReadCnt) throws Exception {
 		if(isIncreaseReadCnt) {
-			boardWodDAO.updateReadCnt(subject);
+			boardWodDAO.updateReadCnt(uuid);
 		}
-		return boardWodDAO.selectOneBoard(subject);
+		return boardWodDAO.selectOneBoard(uuid);
 	}
 
-	@Override
-	public void modifyBoard(BoardWodDTO boardWodDTO) throws Exception {
-		boardWodDAO.updateBoard(boardWodDTO);
-	}
 
 	@Override
-	public void removeBoard(BoardWodDTO boardWodDTO) throws Exception {
+	public void removeBoard(BoardWodDTO boardWodDTO, WebMemberDTO webMemberDTO) throws Exception {
+		
+		WebMemberDTO verifyNum = webMemberDAO.selectOneVerifyNum(webMemberDTO.getVerifyNum());
+		
 		boardWodDAO.deleteBoard(boardWodDTO);
+	}
+
+	@Override
+	public void modifyBoard(BoardWodDTO boardWodDTO, WebMemberDTO webMemberDTO) throws Exception {
+		boardWodDAO.updateBoard(boardWodDTO);
+		
 	}
 
 	

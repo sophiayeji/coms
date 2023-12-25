@@ -38,9 +38,10 @@
                                                     <tr>
                                                         <td class="px-4 py-2 border-bottom-0 text-muted">번호</td>
                                                         <td class="px-4 py-2 border-bottom-0 text-muted">주문번호</td>
-                                                        <td class="px-4 py-2 border-bottom-0 text-muted">총인원</td>
+                                                        <td class="px-4 py-2 border-bottom-0 text-muted">인원</td>
                                                         <td class="px-4 py-2 border-bottom-0 text-muted">날짜</td>
                                                         <td class="px-4 py-2 border-bottom-0 text-muted">시간</td>
+                                                     
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -52,8 +53,8 @@
                                                         <td class="px-4 border-top"><a href="${contextPath }/admin/expclass/detail?uuid=${expClassDTO.uuid }">${expClassDTO.uuid}</a></td>
                                                         <td class="px-4 border-top">${expClassDTO.expNum}</td>
                                                         <td class="px-4 border-top">${expClassDTO.classDt}</td>
-                                                        <td class="px-4 border-top">${expClassDTO.classTime}시</td>
-                                                        
+                                                        <td class="px-4 border-top">${expClassDTO.classTime}시</td>                                                                                                               
+                                                                                        
                                                     </tr>
                                                  </c:forEach>
                                                 </tbody>

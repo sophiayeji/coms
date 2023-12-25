@@ -3,6 +3,7 @@ package com.application.coms.board.wod.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections4.Get;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,13 +34,13 @@ public class BoardWodDAOImpl implements BoardWodDAO {
 	}
 
 	@Override
-	public void updateReadCnt(String subject) throws Exception {
-		sqlSession.update("boardWod.updateReadCnt",subject);		
+	public void updateReadCnt(String uuid) throws Exception {
+		sqlSession.update("boardWod.updateReadCnt",uuid);		
 	}
 
 	@Override
-	public BoardWodDTO selectOneBoard(String subject) throws Exception {
-		return sqlSession.selectOne("boardWod.selectOneBoard" , subject);
+	public BoardWodDTO selectOneBoard(String uuid) throws Exception {	
+		return sqlSession.selectOne("boardWod.selectOneBoard" , uuid);
 	}
 
 	@Override

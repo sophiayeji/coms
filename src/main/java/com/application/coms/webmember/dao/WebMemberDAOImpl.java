@@ -52,5 +52,10 @@ public class WebMemberDAOImpl implements WebMemberDAO {
 	public void deleteMember(String memberId) throws Exception {
 		sqlSession.delete("webmember.deleteMember" , memberId);
 	}
+
+	@Override
+	public WebMemberDTO selectOneVerifyNum(String verifyNum) throws Exception {
+		return sqlSession.selectOne("webMember.selectOneVerifyNum", verifyNum);
+	}
 	
 }

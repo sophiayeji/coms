@@ -49,17 +49,19 @@ public class LockerController {
 	return "/adminNotify";		
 
 }
-//	@GetMapping("/modify")
-//	public ModelAndView modify(@RequestParam("memberId") String memberId) throws Exception{
+	/*
+	@GetMapping("/modify")
+	public ModelAndView modify(@RequestParam("memberId") String memberId) throws Exception{
 		
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("/admin/locker/modifyBoard");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/locker/modifyBoard");
 		
-//		mv.addObject("locekrDTO" , lockerService.getLockerDetail(memberId));
+		mv.addObject("locekrDTO" , lockerService.getLockerDetail(memberId));
 		
-//		return mv;
+		return mv;
 		
-// }
+	}*/
+	
 	@GetMapping("/lockerSearch")
 	public ModelAndView lockerSearch(HttpServletRequest request)throws Exception {
 		

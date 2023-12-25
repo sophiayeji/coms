@@ -10,4 +10,5 @@ public interface LockerService {
 	public void addlocker(LockerDTO lockerDTO, GymMemberDTO gymMemberDTO)throws Exception;
 	public List<LockerDTO> getLockerInfo(Map<String, Object> map)throws Exception;
 
+
 }

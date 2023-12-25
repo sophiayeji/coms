@@ -7,12 +7,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class BoardWodDTO {
 
+	private String uuid;
 	private String subject;
 	private String writer;
 	private String content;
 	private long readCnt;
 	private Date enrollDt;
 	private Date modifyDt;
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 	public String getSubject() {
 		return subject;
 	}
@@ -51,12 +58,8 @@ public class BoardWodDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardWodDTO [subject=" + subject + ", writer=" + writer + ", content=" + content + ", readCnt="
-				+ readCnt + ", enrollDt=" + enrollDt + ", modifyDt=" + modifyDt + "]";
+		return "BoardWodDTO [uuid=" + uuid + ", subject=" + subject + ", writer=" + writer + ", content=" + content
+				+ ", readCnt=" + readCnt + ", enrollDt=" + enrollDt + ", modifyDt=" + modifyDt + "]";
 	}
-	public static void insertBoard(BoardWodDTO boardWodDTO) {
-		// TODO Auto-generated method stub
 		
-	}
-	
 }

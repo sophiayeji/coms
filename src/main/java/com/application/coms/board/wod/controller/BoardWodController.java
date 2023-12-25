@@ -2,6 +2,7 @@ package com.application.coms.board.wod.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,16 +36,23 @@ public class BoardWodController {
 	
 	
 	@PostMapping("/addBoard")
-	public ResponseEntity<Object> addBoard(BoardWodDTO boardWodDTO , HttpServletRequest request) throws Exception{
+	public String addBoard(@ModelAttribute BoardWodDTO boardWodDTO) throws Exception{
 		
+		
+		String uuid = (UUID.randomUUID().toString());
+		boardWodDTO.setUuid(uuid);
+		
+		System.out.print(uuid);
 		
 		boardWodService.addBoard(boardWodDTO);
 
 		
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		
-		return new ResponseEntity<Object>("boardList" , responseHeaders , HttpStatus.OK);
+		   String jsScript = "<script>";
+		   jsScript += " alert('Post Added.');";
+		   jsScript += " location.href='/boardList';";
+		   jsScript += "</script>";
+	
+		  return jsScript;
 		
 	}
 	
@@ -119,22 +128,29 @@ public class BoardWodController {
 	}
 	
 	@GetMapping("/boardDetail")
-	public ModelAndView boardDetail(@RequestParam("subject") String subject) throws Exception{
+	public ModelAndView boardDetail(@RequestParam("uuid") String uuid, BoardWodDTO boardWodDTO) throws Exception{
+		
+		System.out.println(uuid);
+		
+		System.out.println("before");
+		System.out.println(boardWodDTO.getSubject());
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/boardWod/boardDetail");
-		mv.addObject("boardWodDTO" , boardWodService.getBoardDetail(subject , true));
+		mv.addObject("boardWodDTO" , boardWodService.getBoardDetail(uuid , true));
 		
+		System.out.println("after");
+
 		return mv;
 		
 	}
 	
 	@GetMapping("/modifyBoard")
-	public ModelAndView modifyBoard(@RequestParam("subject") String subject) throws Exception{
+	public ModelAndView modifyBoard(@RequestParam("uuid") String uuid) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/boardWod/modifyBoard");
-		mv.addObject("boardWodDTO" , boardWodService.getBoardDetail(subject , false));
+		mv.addObject("boardWodDTO" , boardWodService.getBoardDetail(uuid , false));
 		
 		return mv;
 		
@@ -144,7 +160,7 @@ public class BoardWodController {
 	public ResponseEntity<Object> modifyBoard(BoardWodDTO boardWodDTO , HttpServletRequest request) throws Exception{
 
 		
-		boardWodService.modifyBoard(boardWodDTO);
+		boardWodService.modifyBoard(boardWodDTO, null);
 		
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -157,11 +173,11 @@ public class BoardWodController {
 	
 
 	@GetMapping("/removeBoard")
-	public ModelAndView removeBoard(@RequestParam("subject") String subject) throws Exception{
+	public ModelAndView removeBoard(@RequestParam("uuid") String uuid) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/boardWod/removeBoard");
-		mv.addObject("BoardWodDTO" , boardWodService.getBoardDetail(subject , false));
+		mv.addObject("BoardWodDTO" , boardWodService.getBoardDetail(uuid , false));
 		
 		return mv;
 		
@@ -171,7 +187,7 @@ public class BoardWodController {
 	@PostMapping("/removeBoard")
 	public ResponseEntity<Object> removeBoard(BoardWodDTO boardWodDTO , HttpServletRequest request) throws Exception{
 		
-			boardWodService.removeBoard(boardWodDTO);
+			boardWodService.removeBoard(boardWodDTO, null);
 		
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.add("Content-Type", "text/html; charset=utf-8");
@@ -252,11 +268,11 @@ public class BoardWodController {
 	}
 	
 	@GetMapping("/boardDetailAdmin")
-	public ModelAndView boardDetailAdmin(@RequestParam("subject") String subject) throws Exception{
+	public ModelAndView boardDetailAdmin(@RequestParam("uuid") String uuid) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/boardWod/boardDetailAdmin");
-		mv.addObject("BoardWodDTO" , boardWodService.getBoardDetail(subject , true));
+		mv.addObject("BoardWodDTO" , boardWodService.getBoardDetail(uuid , true));
 		
 		return mv;
 		

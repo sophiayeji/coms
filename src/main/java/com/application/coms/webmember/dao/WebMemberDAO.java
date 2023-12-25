@@ -16,5 +16,5 @@ public interface WebMemberDAO {
 	public WebMemberDTO selectOneMyInfo(String memberId)throws Exception;
 	public void updateMyInfo(WebMemberDTO webMemberDTO)throws Exception;
 	public void deleteMember(String memberId)throws Exception;
-	
+	public WebMemberDTO selectOneVerifyNum(String verifyNum)throws Exception;
 }

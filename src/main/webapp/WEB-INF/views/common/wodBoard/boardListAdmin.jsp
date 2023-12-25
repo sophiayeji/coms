@@ -82,7 +82,7 @@
 						<c:set var="startBoardIdx" value="${startBoardIdx = startBoardIdx + 1}"/>
 						<td>${startBoardIdx}</td>
 						<td align="left">
-							<a href="${contextPath }/boardWod/boardDetailAdmin?subject=${boardWodDTO.subject }">${boardWodDTO.subject }</a>
+							<a href="${contextPath }/boardWod/boardDetailAdmin?uuid=${boardWodDTO.uuid }">${boardWodDTO.subject }</a>
 						</td>
 						<td>${boardWodDTO.writer}</td>
 						<td><fmt:formatDate value="${boardWodDTO.enrollDt}" pattern="yyyy-MM-dd"/></td>

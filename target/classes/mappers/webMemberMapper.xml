@@ -73,5 +73,13 @@
 				WEBMEMBER
 		WHERE
 				MEMBER_ID = #{memberId}
-	</delete>							
+	</delete>
+	<select id ="selectOneVerifyNum" parameterType="string" resultType="WebmemberDTO">
+		SELECT
+				*
+		FROM
+				WEBMEMBER
+		WHERE
+				VERIFY_NUM = #{verify_num}	
+	</select>							
  </mapper>

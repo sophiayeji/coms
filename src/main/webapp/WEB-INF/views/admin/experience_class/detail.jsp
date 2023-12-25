@@ -42,6 +42,7 @@
 							<p>수업시간: ${expClassDTO.classTime }</p>
 							<p>인원: ${expClassDTO.expNum }</p>
 							<p>경험자 인원: ${expClassDTO.crsftExpNum }</p>
+							<p>승인여부: ${expClassDTO.approvalYn }</p>
 							<p>
 								등록날짜:
 								<fmt:formatDate value="${expClassDTO.regDt}"

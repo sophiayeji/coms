@@ -60,7 +60,7 @@ public ModelAndView recessMemberList(HttpServletRequest request)throws Exception
 	return mv;
 			
 }
-		
+		  
 		
 	
 }
