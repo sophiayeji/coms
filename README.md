@@ -36,7 +36,8 @@
 	<li>온라인 예약 및 관리자 페이지에서 예약 승인기능</li>
             승인 기능의 구현은 체험 수업 예약을 효과적으로 처리하고 관리하기 위한 프로세스를 간소화하여 체계적인 방식을 제공하며, 관리자의 고객 서비스 관리 기능을 강화한다.
 	    승인 기능은 ExpClassManageController 클래스의 일부로, 특히 /admin/expclass 매핑 내에 위치한다. 이 기능은 /approve 엔드포인트를 통해 액세스되며, 
-            여기서 관리자는 대기 중인 수업 요청 목록을 볼 수 있으며, 이를 승인 또는 거부하고 각 주문에 대한 자세한 정보를 검토 할 수 있다. 
+            여기서 관리자는 대기 중인 수업 요청 목록을 볼 수 있으며, 이를 승인 또는 거부하고 각 주문에 대한 자세한 정보를 검토 할 수 있다.
+	    ![my_video](https://github.com/sophiayeji/coms/assets/125880712/c565605b-902f-41c6-85e8-51186e946ef9)
 	    ![image](https://github.com/sophiayeji/coms/assets/125880712/bf4d5bcc-8f69-4a25-b577-0d5037b64922)
             ![image](https://github.com/sophiayeji/coms/assets/125880712/238aed18-faa1-4fd2-bf22-21069d854d9b)
             ExpClasService 클래스의 addApprovalYn 메서드: 데이터베이스에서 승인 상태를 업데이트하는 역할을 한다.
@@ -51,9 +52,11 @@
 	<li>관리자 권한 로그인 로그추적</li>
        스프링 AOP 기술을 사용하여 AdminMemberController를 포인트를 찍고 매서드의 종류, 어드바이즈메서드에 대한 설명, 대상객체를 찍어서 관리자 로그인 활동의 상세한 레코드를 제공함으로써 
        정기적인 모니터링을 할 수 있게 구현했다.
-       ![image](https://github.com/sophiayeji/coms/assets/125880712/3bd61046-2edb-49db-b1e5-2f1d18912cc6)
+       ![image](https://github.com/sophiayeji/coms/assets/125880712/3bd61046-2edb-49db-b1e5-2f1d18912cc6.gif)
+      
+       
 
-					  
+
 					  
 
  
