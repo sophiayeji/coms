@@ -11,8 +11,8 @@
 <body>
 	 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
-                        <ul>
-                            <li><a href="${contextPath }/coms"><span class="icon_house"></span> Home</a></li>
+                        <ul> 
+                           <li><a href="${contextPath }/coms"><span class="icon_house"></span> Home</a></li>
                             <li>&emsp;&emsp;&emsp;</li>
                         	<c:choose> <!--관리자 전용 페이지 -->
                         		<c:when test="${sessionScope.role eq 'admin'}">
