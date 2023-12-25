@@ -365,5 +365,4 @@
     	MAX(M.MEM_END_DT) DESC; 
 	]]>	
 	</select>
-
 </mapper>
