@@ -14,7 +14,7 @@
                         <ul> 
                            <li><a href="${contextPath }/coms"><span class="icon_house"></span> Home</a></li>
                             <li>&emsp;&emsp;&emsp;</li>
-                        	<c:choose> <!--관리자 전용 페이지 -->
+                        	<c:choose> 
                         		<c:when test="${sessionScope.role eq 'admin'}">
 		                             <li><a href="#"><span class="icon_menu"></span> 등록</a>
 		                                <ul class="dropdown">
@@ -63,7 +63,7 @@
 		                                </ul>
 		                             </li>
                         		</c:when>
-                        		<c:otherwise> <!--클라이언트 로그인 전용 페이지 -->
+                        		<c:otherwise> 
 		                             <li><span class="icon_menu"></span> My Pages
 		                                <ul class="dropdown">
 			                             <li><a href="${contextPath }/coms/myPage/myInfo?memberId=${sessionScope.memberId}"><span class="icon_info"></span> My Info</a></li>
@@ -82,19 +82,19 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><<img src="${contextPath }/resources/bootstrap/img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="${contextPath }/resources/bootstrap/img/logo.png" alt=""></a>                        
                     </div>
                 </div>  
      			<div class="col-lg-3">
                     <div class="header__right">
-                    	<c:choose> <!--클라이언트가 로그인 하기 전 -->
-                    		<c:when test="${sessionScope.memberId eq null }">
+                    	<c:choose> 
+                    		<c:when test="${empty sessionScope.memberId}">
 		                        <div class="header__right__auth">
 		                            <a href="${contextPath }/coms/webmember/loginWebMember">Login</a>
 		                            <a href="${contextPath }/coms/webmember/register">Register</a>
 		                        </div>
                     		</c:when>
-                    		<c:otherwise> <!--클라이언트가 로그인 후 -->
+                    		<c:otherwise> 
 		                        <div class="header__right__auth">
 		                            <a href="${contextPath }/coms/webmember/logoutWebMember">logout</a>
 		                        </div>
