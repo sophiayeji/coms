@@ -14,7 +14,7 @@
                         <ul> 
                            <li><a href="${contextPath }/coms"><span class="icon_house"></span> Home</a></li>
                             <li>&emsp;&emsp;&emsp;</li>
-                        	<c:choose> 
+                        	<c:choose> <!----관리자 권한 페이지----->
                         		<c:when test="${sessionScope.role eq 'admin'}">
 		                             <li><a href="#"><span class="icon_menu"></span> 등록</a>
 		                                <ul class="dropdown">
@@ -63,7 +63,7 @@
 		                                </ul>
 		                             </li>
                         		</c:when>
-                        		<c:otherwise> 
+                        		<c:otherwise> <!---클라이언트페이지---->
 		                             <li><span class="icon_menu"></span> My Pages
 		                                <ul class="dropdown">
 			                             <li><a href="${contextPath }/coms/myPage/myInfo?memberId=${sessionScope.memberId}"><span class="icon_info"></span> My Info</a></li>
@@ -87,14 +87,14 @@
                 </div>  
      			<div class="col-lg-3">
                     <div class="header__right">
-                    	<c:choose> 
+                    	<c:choose> <!---로그인 전---->
                     		<c:when test="${empty sessionScope.memberId}">
 		                        <div class="header__right__auth">
 		                            <a href="${contextPath }/coms/webmember/loginWebMember">Login</a>
 		                            <a href="${contextPath }/coms/webmember/register">Register</a>
 		                        </div>
                     		</c:when>
-                    		<c:otherwise> 
+                    		<c:otherwise> <!--로그인 후-->
 		                        <div class="header__right__auth">
 		                            <a href="${contextPath }/coms/webmember/logoutWebMember">logout</a>
 		                        </div>
