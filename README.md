@@ -9,7 +9,7 @@
    		주요 개발자원 S/W	
 	3.핵심키워드
 	4.시스템아키텍쳐
-	5.E-R 다이어그램
+	5.ERD 다이어그램
 	6.프로젝트 목적
   프로젝트 관련 추가 포스팅
  
@@ -29,6 +29,10 @@
       ![image](https://github.com/sophiayeji/coms/assets/125880712/bfb756d7-e17c-4441-b97a-11121e743253)
 
 <3> 핵심 키워드 
+
+<5> ERD 다이어그램
+![COMS_ERD](https://github.com/sophiayeji/coms/assets/125880712/b6da1d40-0d37-4d39-af99-399129bb0b44)
+
 
 <7> 핵심기능  
 	<li>온라인 예약 및 관리자 페이지에서 예약 승인기능</li>
