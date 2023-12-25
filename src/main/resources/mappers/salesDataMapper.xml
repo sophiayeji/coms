@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-//이번달 매출현황 쿼리문
-<mapper namespace="salesData">
+<mappers namespace="salesData">
+
+<!--이번달 매출현황-->
 	<resultMap type="hashmap" id="SalesDataThisMonthMap">
 		<result column="CATEGORY"     	  	property="category"/>
 		<result column="SALES_DATE"    		property="sales_data"/>
@@ -10,7 +11,7 @@
 		<result column="UUID"    			property="uuid"/>
 		<result column="GRAND_TOTAL"  		property="Grand_total"/>
 	</resultMap>
-
+	
 	<select id ="selectListSalesDataThisMonth"  resultMap="SalesDataThisMonthMap">
 	SELECT 
     	CATEGORY,
@@ -89,7 +90,7 @@
 	) AS SUBQUERY;
 	</select>
 
-//올해 매출현황 쿼리문	
+<!--올해 매출현황-->
 	<resultMap type="hashmap" id="SalesDataThisYearMap">
 		<result column="SALES_MONTH"    		property="sales_month"/>
 		<result column="CATEGORY" 				property="category"/>
@@ -196,14 +197,15 @@
 			SALES_MONTH;	
 	</select>
 
-//년도별 매출현황 쿼리문		
+<!-- 년도별 매출현황-->
 	<resultMap type="hashmap" id="SalesDataYearlyMap">
 		<result column="SALES_YEAR"    		property="sales_year"/>
 		<result column="CATEGORY" 			property="category"/>
 		<result column="AMOUNT" 			property="amount"/>
 		<result column="GRAND_TOTAL"  		property="Grand_total"/>
 	</resultMap>
-		
+
+<!-- 올해 회원분석-->		
 	<select id ="selectListSalesDataYearly"  resultMap="SalesDataYearlyMap">
 	SELECT 
     	CATEGORY,
@@ -301,7 +303,7 @@
 	) AS SUBQUERY;
 	</select>
 
-//올해 회원분석 쿼리문
+<!--년도별 회원분석-->		
 	<resultMap type="hashmap" id="MemberAnalysis_thisyear_MonthlyMap">
 		<result column="RegisterMonth"  		property="registermonth"/>
 		<result column="RegisterNumber" 		property="registernumber"/>
@@ -333,7 +335,6 @@
  	]]>
 	</select>
 
-//년도별 회원분석 쿼리문
 	<resultMap type="hashmap" id="MemberAnalysis_YearlyMap">
 		<result column="RegisterYear"  			property="registerYear"/>
 		<result column="RegisterNumber" 		property="registernumber"/>
@@ -364,4 +365,5 @@
     	MAX(M.MEM_END_DT) DESC; 
 	]]>	
 	</select>
-</mapper>
+
+</mappers>
