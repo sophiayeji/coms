@@ -76,8 +76,8 @@
  	![Controller 코드](https://github.com/sophiayeji/coms/blob/master/src/main/java/com/application/coms/webmember/controller/WebMemberController.java)
 	![jps코드](https://github.com/sophiayeji/coms/blob/master/src/main/webapp/WEB-INF/views/common/layout/header.jsp)     	
        <li>웹회원 비밀번호 Security기능</li>
-       WebMemberServiceImpl에서 BcryptPasswordEncoder를 사용하여 비밀번호를 암호화하여 서버에 저장이 되게 하였다.
-       [데이터에 암호화되어 저장되어있는 비밀번호]
+       WebMemberServiceImpl에서 BcryptPasswordEncoder를 사용하여 비밀번호를 암호화하여 서버에 저장이 되게 하였다.<br>
+       [데이터에 암호화되어 저장되어있는 비밀번호]<br>
        ![image](https://github.com/sophiayeji/coms/assets/125880712/51fa5d3d-e8e3-4584-8f53-06ee1e66c16c)
 
 	
