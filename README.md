@@ -64,7 +64,9 @@
        -고유회원번호에 없는 정보를 회원아이디로 입력했을 예외의 경우 아래와 같이 롤백이 처리가 됨-
       ![image](https://github.com/sophiayeji/coms/assets/125880712/16199022-87bc-4fc5-af79-f666099cb333)
       <li>회원관리를 위한 조회기능(관리자페이지)</li>
-      ![image](https://github.com/sophiayeji/coms/assets/125880712/3006da5a-441b-4feb-bf09-5b608d6bd4e2)
+      ![image](https://github.com/sophiayeji/coms/assets/125880712/30e6d944-445c-4fa8-b9de-045885b6854e)
+
+
 
 
 
