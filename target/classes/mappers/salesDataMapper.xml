@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--이번달 매출현황-->
+
 <mapper namespace="salesData">
 
 <!--이번달 매출현황-->
@@ -90,13 +90,10 @@
     		CATEGORY IS NOT NULL
 	) AS SUBQUERY;
 	</select>
-<<<<<<< HEAD
 
-<!--올해 매출현황-->
-=======
+
 	
 <!--올해 매출현황-->	
->>>>>>> branch 'master' of https://github.com/sophiayeji/coms.git
 	<resultMap type="hashmap" id="SalesDataThisYearMap">
 		<result column="SALES_MONTH"    		property="sales_month"/>
 		<result column="CATEGORY" 				property="category"/>
@@ -211,11 +208,6 @@
 		<result column="GRAND_TOTAL"  		property="Grand_total"/>
 	</resultMap>
 
-<<<<<<< HEAD
-<!-- 올해 회원분석-->		
-=======
-<!-- 년도별 매출현황-->	
->>>>>>> branch 'master' of https://github.com/sophiayeji/coms.git
 	<select id ="selectListSalesDataYearly"  resultMap="SalesDataYearlyMap">
 	SELECT 
     	CATEGORY,
