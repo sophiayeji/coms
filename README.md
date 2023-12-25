@@ -74,9 +74,9 @@
  	우선 WebMemberController에서 로그인 프로세스에서 세션의 사용자의 역할을 설정했으며, JSP에서 <c:choose> 및 <c:when>을 사용하여 
 	다양한 역할에 대한 메뉴 항목을 조건부로 표시하여 사용자의 역할에 따라 메뉴를 동적으로 렌더링 하였다. 
  	![Controller 코드](https://github.com/sophiayeji/coms/blob/master/src/main/java/com/application/coms/webmember/controller/WebMemberController.java)
-	![jps코드](https://github.com/sophiayeji/coms/blob/master/src/main/webapp/WEB-INF/views/common/layout/header.jsp) 
-    	
-       <li>웹 회원가입 기능 구현</li>
+	![jps코드](https://github.com/sophiayeji/coms/blob/master/src/main/webapp/WEB-INF/views/common/layout/header.jsp)     	
+       <li>웹회원 비밀번호 Security기능</li>
+       BcryptPasswordEncoder를 사용하여 비밀번호를 암호화하여 서버에 저장이 되게 하였다. 
 	
 
 
