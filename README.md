@@ -40,11 +40,15 @@
 
 
 <4> 핵심키워드
+<li>스프링 프레임워크를 사용하여 클라이언트용 / 어드민용 웹 사이트 생애주기 기획부터 배포 및 유지, 보수까지 전과장 개발과 운영 경험 확보</li>
+<li></li>Amazon Web Service기반 실무형 프로젝트</li>
+<li></li>MVC 프레임워크 기반 백엔드 서버 구축</li>
 
-<4> 시스템 아키텍쳐
+ 
+<5> 시스템 아키텍쳐
 ![image](https://github.com/sophiayeji/coms/assets/125880712/34423fcf-ab7f-4f30-993c-7e4a42994961)
 
-<5> ERD 다이어그램
+<6> ERD 다이어그램
 ![COMS_ERD](https://github.com/sophiayeji/coms/assets/125880712/b6da1d40-0d37-4d39-af99-399129bb0b44)
 
 
