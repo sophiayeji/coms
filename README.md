@@ -30,6 +30,9 @@
 
 <3> 핵심 키워드 
 
+<4> 시스템 아키텍쳐
+![image](https://github.com/sophiayeji/coms/assets/125880712/34423fcf-ab7f-4f30-993c-7e4a42994961)
+
 <5> ERD 다이어그램
 ![COMS_ERD](https://github.com/sophiayeji/coms/assets/125880712/b6da1d40-0d37-4d39-af99-399129bb0b44)
 
