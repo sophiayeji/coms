@@ -28,7 +28,10 @@
 	<li>주요 개발자원(S/W)</li>
        ![image](https://github.com/sophiayeji/coms/assets/125880712/94817871-b755-457f-b2f3-b18be581c0bc)
        
-<3> 핵심 키워드 
+<3> 프로그램 목적
+     
+
+<4> 핵심키워드
 
 <4> 시스템 아키텍쳐
 ![image](https://github.com/sophiayeji/coms/assets/125880712/34423fcf-ab7f-4f30-993c-7e4a42994961)
