@@ -24,10 +24,10 @@
  
 <2>개발환경     
        <li>주요 개발자원(H/W)</li>
-       ![image](https://github.com/sophiayeji/coms/assets/125880712/09e869a6-0257-431b-92d1-27145a2c2f96)
+       ![image](https://github.com/sophiayeji/coms/assets/125880712/5b1b3dff-3a6e-4906-9e36-e26ede5342f3)
 	<li>주요 개발자원(S/W)</li>
-      ![image](https://github.com/sophiayeji/coms/assets/125880712/bfb756d7-e17c-4441-b97a-11121e743253)
-
+       ![image](https://github.com/sophiayeji/coms/assets/125880712/94817871-b755-457f-b2f3-b18be581c0bc)
+       
 <3> 핵심 키워드 
 
 <4> 시스템 아키텍쳐
