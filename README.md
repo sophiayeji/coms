@@ -1,119 +1,188 @@
 ##### COMS(CROSSFIT GYM MANAGEMENT SYSTEM)
 
-[English](#english) | [한국어](#korean)
+# COMS — CrossFit Gym Management System
+
+> AWS-based full-stack web application for CrossFit gym operations and membership management.
+
+**Project Period:** July 6, 2023 – August 2, 2023  
+**Project Type:** Full-Stack Development Training Project  
+**Status:** The deployed website is no longer active. Source code and project documentation are available in this repository.
 
 ---
 
-<a name="english"></a>
-# 🇺🇸 English
+## 1. Project Overview
 
-## 1. Overview
+COMS is a web-based CrossFit gym management system designed to support both customer-facing services and administrative operations.
 
-**Project:** AWS-based CrossFit Gym Management System  
-**Period:** July 6, 2023 – August 2, 2023
+I developed this project to apply the programming, database, and system development concepts I learned during my full-stack development training while building a system around realistic business processes.
 
-A full-stack gym management system developed using Java, Spring Framework,
-MySQL, and AWS.
-
-The system provides separate Client and Administrator functions for
-membership management, reservations, approvals, facility management,
-and operational reporting.
+The application provides separate **Client** and **Administrator** functions for membership management, class reservations, facility management, approval workflows, and operational reporting.
 
 ---
 
-## 2. System Architecture
+## 2. Technology Stack
 
-![System Architecture](YOUR_EXISTING_IMAGE_PATH)
-
-The application was deployed using AWS EC2 and Amazon RDS with
-Spring Framework, Apache Tomcat, and MySQL.
-
----
-
-## 3. Database Design
-
-![ERD](YOUR_EXISTING_ERD_IMAGE_PATH)
-
-The relational database supports membership, reservations,
-facility usage, lockers, administrative access, and customer inquiries.
-
----
-
-## 4. Reservation & Approval Workflow
-
-![Reservation Approval Workflow](YOUR_EXISTING_WORKFLOW_IMAGE_PATH)
-
-Customers can submit reservation requests, while administrators can
-review, approve, or reject them.
-
-The workflow connects the Controller, Service, DAO, DTO, and database layers.
+| Category | Technology |
+|---|---|
+| Backend | Java, JSP, Servlet |
+| Framework | Spring Framework |
+| Database | MySQL |
+| Database Access | MyBatis |
+| Architecture | MVC |
+| Cloud | AWS EC2, Amazon RDS |
+| Web Server | Apache Tomcat |
+| Frontend | HTML5, CSS3, JavaScript, jQuery |
+| Security | Spring Security |
+| Version Control | Git, GitHub |
+| Build Tool | Maven |
+| Data Transfer | AJAX, JSON |
+| Transaction Management | Spring Transaction |
 
 ---
 
-## 5. Admin Activity Logging & Transaction Management
+## 3. System Architecture
 
-![Admin Logging](YOUR_EXISTING_LOG_IMAGE_PATH)
+<!-- EXISTING SYSTEM ARCHITECTURE IMAGE -->
 
-Administrative activity is logged using Spring AOP.
+The application was deployed using **AWS EC2** for the application server and **Amazon RDS/MySQL** for the database.
 
-![Transaction Testing](YOUR_EXISTING_TRANSACTION_IMAGE_PATH)
+The backend was developed using Spring Framework with an MVC architecture and deployed through Apache Tomcat.
 
-Spring transaction management and rollback handling are used to
-maintain data consistency when errors occur.
+---
+
+## 4. Database Design
+
+<!-- EXISTING ERD IMAGE -->
+
+The relational database was designed to support key business processes including:
+
+- User and member management
+- Membership records
+- Class reservations
+- Facility reservations
+- Locker assignments
+- Administrative access
+- Notice board content
+- Customer inquiries
+
+The ERD was designed to separate client-accessible functions from administrative functions while maintaining relationships between operational data.
+
+---
+
+## 5. Core Features
+
+### Online Reservation & Admin Approval
+
+<!-- EXISTING RESERVATION / APPROVAL IMAGE OR VIDEO -->
+
+Clients can submit class reservation requests through the system.
+
+Administrators can:
+
+- Review pending reservation requests
+- Approve or reject requests
+- Review reservation details
+- Update approval status in the database
+
+The workflow connects the **Controller, Service, DAO, DTO, and database layers**.
+
+---
+
+### Role-Based Access Control
+
+The application separates functionality between **Client** and **Administrator** users.
+
+**Administrator access includes:**
+
+- Membership management
+- Sales tracking
+- Facility reservations
+- Reservation approval
+- Administrative content management
+
+**Client access includes:**
+
+- Personal information
+- Class bookings
+- Facility reservations
+- Reservation history
+
+Spring Security and session-based authorization are used to control access to administrative functionality.
+
+---
+
+### Admin Activity Logging
+
+<!-- EXISTING ADMIN LOGGING IMAGE -->
+
+Spring AOP is used to log administrative activity and support monitoring of administrator actions.
+
+---
+
+### Transaction Management
+
+<!-- EXISTING TRANSACTION / ROLLBACK IMAGE -->
+
+Spring transaction management is used to maintain data consistency during operations such as member registration, membership updates, locker assignments, and file uploads.
+
+Rollback handling helps protect data integrity when processing errors occur.
 
 ---
 
 ## 6. Membership & Sales Analytics
 
-![Membership Analytics](YOUR_EXISTING_ANALYTICS_IMAGE_PATH)
+<!-- EXISTING ANALYTICS / REPORTING IMAGE -->
 
-The administrator interface provides operational reporting including:
+The administrator interface includes member lookup and operational reporting functionality.
 
-- Current-month and annual sales
+Examples include:
+
+- Current-month sales
+- Annual sales
 - Membership status
 - New and canceled members
 - Membership expiration
-- Payment history
+- Membership payment history
 - Facility usage history
 
----
-
-## 7. Technology Stack
-
-| Area | Technologies |
-|---|---|
-| Backend | Java, JSP, Servlet |
-| Framework | Spring Framework |
-| Database | MySQL, MyBatis |
-| Cloud | AWS EC2, Amazon RDS |
-| Frontend | HTML5, CSS3, JavaScript, jQuery |
-| Security | Spring Security |
-| Architecture | MVC |
-| Version Control | Git, GitHub |
-| Build | Maven |
-| Data | AJAX, JSON |
+The reporting functionality was designed to turn operational data into useful information for gym management and business decision-making.
 
 ---
 
-## 8. What I Learned
+## 7. What I Learned
 
-This project gave me hands-on experience connecting business requirements
-with application and database design.
+This project gave me hands-on experience connecting **business requirements, application development, database design, and user workflows**.
 
-I gained practical experience with database modeling, SQL/MySQL,
-Java/Spring development, MVC architecture, AWS deployment,
-role-based system design, transaction management, testing,
-and Git/GitHub version control.
+Through the project, I gained practical experience with:
 
-My professional focus is now data analytics, business systems,
-reporting, and process improvement.
+- Relational database modeling
+- SQL and MySQL
+- Java/Spring application development
+- MVC architecture
+- AWS deployment
+- Role-based system design
+- Transaction management
+- Git/GitHub version control
+- Testing and troubleshooting
+- Translating operational processes into system functionality
+
+My professional background is primarily in **business operations and data analytics rather than software engineering**. This project helped me better understand how business requirements, databases, application logic, and user workflows connect within an information system.
 
 ---
 
-<a name="korean"></a>
-# 🇰🇷 한국어
+## 8. Project Background
 
-<!-- KEEP YOUR EXISTING KOREAN README BELOW THIS LINE -->
+This project was completed in 2023 as part of my full-stack development training.
+
+My current professional focus is **data analytics, business systems, reporting, and process improvement**, with experience using Power BI, SQL, Excel, data modeling, data validation, and operational analytics.
+
+---
+
+## 한국어
+
+The original Korean project documentation is provided below.
+
+<!-- KEEP ORIGINAL KOREAN README HERE -->
 -----------------------------------------------------------------------------------------------------------------
 목차	
 
