@@ -1,4 +1,205 @@
 ##### COMS(CROSSFIT GYM MANAGEMENT SYSTEM)
+# COMS — CrossFit Gym Management System
+
+> AWS-based full-stack web application for CrossFit gym operations and membership management.
+
+**Project Period:** July 6, 2023 – August 2, 2023  
+**Project Type:** Full-Stack Development Training Project  
+**Status:** The deployed website is no longer active. Source code and project documentation remain available in this repository.
+
+---
+
+## Project Overview
+
+COMS is a web-based CrossFit gym management system designed to support both customer-facing services and administrative operations.
+
+I developed this project to apply the programming and database concepts I learned during my full-stack development training while building a system around realistic business processes.
+
+The application includes separate **Client** and **Administrator** functionality for membership management, class reservations, facility management, approval workflows, and operational reporting.
+
+---
+
+## Key Features
+
+### Client Functions
+- Member registration and login
+- Class and facility reservations
+- Personal information management
+- Reservation history
+- Membership information
+
+### Administrator Functions
+- Member search and management
+- Reservation review and approval
+- Membership and facility management
+- Sales and membership reporting
+- Administrative notice management
+- Role-based access control
+- Administrative activity logging
+
+---
+
+## Technology Stack
+
+| Category | Technology |
+|---|---|
+| Backend | Java, JSP, Servlet |
+| Framework | Spring Framework |
+| Database | MySQL |
+| Database Access | MyBatis |
+| Architecture | MVC |
+| Cloud | AWS EC2, Amazon RDS |
+| Web Server | Apache Tomcat |
+| Frontend | HTML5, CSS3, JavaScript, jQuery |
+| Security | Spring Security |
+| Version Control | Git, GitHub |
+| Build Tool | Maven |
+| Data Transfer | AJAX, JSON |
+| Transaction Management | Spring Transaction |
+
+---
+
+## System Architecture
+
+The application was deployed using AWS infrastructure with separate application and database components.
+
+- **Application Server:** Amazon EC2
+- **Database:** Amazon RDS / MySQL
+- **Application Framework:** Spring Framework
+- **Web Application Server:** Apache Tomcat
+- **Architecture:** MVC
+
+> See the system architecture diagram included in the project documentation for additional details.
+
+---
+
+## Database Design
+
+The system uses a relational database structure to manage:
+
+- User accounts
+- Gym members
+- Membership records
+- Class reservations
+- Facility reservations
+- Locker assignments
+- Administrative access
+- Notice board content
+- Customer inquiries
+
+The database was designed using MySQL and documented through an ERD.
+
+---
+
+## Core Functionality
+
+### 1. Online Reservation & Admin Approval
+
+Customers can submit class reservation requests through the client application.
+
+Administrators can:
+
+- Review pending requests
+- Approve or reject reservations
+- View reservation details
+- Update approval status in the database
+
+The workflow connects the Controller, Service, DAO, DTO, and database layers.
+
+---
+
+### 2. Role-Based Access Control
+
+The system separates permissions between **Client** and **Administrator** users.
+
+**Administrators can access:**
+- Membership management
+- Sales tracking
+- Facility reservations
+- Administrative content management
+
+**Clients can access:**
+- Personal information
+- Class bookings
+- Reservation history
+
+Spring Security and session-based authorization are used to control access to administrative functionality.
+
+---
+
+### 3. Transaction Management
+
+Spring transaction management is used to maintain data consistency during operations such as:
+
+- Member registration
+- Membership updates
+- Locker assignments
+- File and photo uploads
+
+Rollback handling helps protect data integrity when processing errors occur.
+
+---
+
+### 4. Administrative Activity Logging
+
+Spring AOP is used to record administrative activity.
+
+The system logs information related to administrator actions and controller activity to support monitoring and troubleshooting.
+
+---
+
+### 5. Membership & Sales Analytics
+
+The administrator interface includes operational reporting and member lookup functionality.
+
+Examples include:
+
+- Current-month sales
+- Annual sales
+- Membership status
+- New and canceled members
+- Membership expiration
+- Payment history
+- Facility usage history
+
+This functionality was designed to turn operational data into information that could support gym management decisions.
+
+---
+
+## What I Learned
+
+This project gave me hands-on experience connecting business requirements with application and database design.
+
+Through the project, I gained practical experience with:
+
+- Relational database modeling
+- SQL and MySQL
+- Java/Spring application development
+- MVC architecture
+- AWS deployment
+- Role-based system design
+- Transaction management
+- Git/GitHub version control
+- Testing and troubleshooting
+- Translating operational processes into system functionality
+
+My professional background is primarily in business operations and data analytics rather than software engineering. This project helped me better understand how business requirements, databases, application logic, and user workflows connect within an information system.
+
+---
+
+## Project Background
+
+This project was completed in 2023 as part of my full-stack development training.
+
+My current professional focus is **data analytics, business systems, reporting, and process improvement**, using tools including Power BI, SQL, Excel, and data modeling.
+
+---
+
+## Language
+
+This README is provided in English for portfolio purposes.
+
+For the original Korean project documentation, see the Korean README/documentation in this repository.
 -----------------------------------------------------------------------------------------------------------------
 목차	
 
