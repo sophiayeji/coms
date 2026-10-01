@@ -1,12 +1,9 @@
 ##### COMS(CROSSFIT GYM MANAGEMENT SYSTEM)
-
-# COMS — CrossFit Gym Management System
-
 > AWS-based full-stack web application for CrossFit gym operations and membership management.
 
 **Project Period:** July 6, 2023 – August 2, 2023  
 **Project Type:** Full-Stack Development Training Project  
-**Status:** The deployed website is no longer active. Source code and project documentation are available in this repository.
+**Status:** The deployed website is no longer active. Source code and project documentation remain available in this repository.
 
 ---
 
@@ -16,11 +13,19 @@ COMS is a web-based CrossFit gym management system designed to support both cust
 
 I developed this project to apply the programming, database, and system development concepts I learned during my full-stack development training while building a system around realistic business processes.
 
-The application provides separate **Client** and **Administrator** functions for membership management, class reservations, facility management, approval workflows, and operational reporting.
+Based on my experience as a CrossFit member, I designed the application with separate **Client** and **Administrator** functions to support membership management, reservations, facility management, approval workflows, and operational reporting.
 
 ---
 
-## 2. Technology Stack
+## 2. Development Environment
+
+### Hardware / Infrastructure
+
+![Development Environment](https://github.com/sophiayeji/coms/assets/125880712/5b1b3dff-3a6e-4906-9e36-e26ede5342f3)
+
+### Software & Technology Stack
+
+![Software Resources](https://github.com/sophiayeji/coms/assets/125880712/94817871-b755-457f-b2f3-b18be581c0bc)
 
 | Category | Technology |
 |---|---|
@@ -29,8 +34,8 @@ The application provides separate **Client** and **Administrator** functions for
 | Database | MySQL |
 | Database Access | MyBatis |
 | Architecture | MVC |
-| Cloud | AWS EC2, Amazon RDS |
-| Web Server | Apache Tomcat |
+| Cloud | AWS |
+| Web Application Server | Apache Tomcat |
 | Frontend | HTML5, CSS3, JavaScript, jQuery |
 | Security | Spring Security |
 | Version Control | Git, GitHub |
@@ -40,21 +45,45 @@ The application provides separate **Client** and **Administrator** functions for
 
 ---
 
-## 3. System Architecture
+## 3. Project Purpose
 
-<!-- EXISTING SYSTEM ARCHITECTURE IMAGE -->
+The goal of this project was to apply the programming and system development concepts I learned during training to a realistic business use case.
 
-The application was deployed using **AWS EC2** for the application server and **Amazon RDS/MySQL** for the database.
+I chose a CrossFit gym management platform because I was familiar with gym operations as a long-term CrossFit member. I wanted to explore how technology could support and improve everyday business processes for both customers and administrators.
 
-The backend was developed using Spring Framework with an MVC architecture and deployed through Apache Tomcat.
+The project was designed to provide hands-on experience across the application lifecycle, including planning, database design, development, testing, deployment, and troubleshooting.
 
 ---
 
-## 4. Database Design
+## 4. Key Technologies & Concepts
 
-<!-- EXISTING ERD IMAGE -->
+- Full-stack web development using Spring Framework
+- Client and administrator application functions
+- AWS-based application deployment
+- MVC architecture
+- Relational database design
+- Role-based access control
+- Transaction management
+- Operational reporting and analytics
+- Git/GitHub version control
 
-The relational database was designed to support key business processes including:
+---
+
+## 5. System Architecture
+
+![System Architecture](https://github.com/sophiayeji/coms/assets/125880712/34423fcf-ab7f-4f30-993c-7e4a42994961)
+
+The application was designed using an MVC-based architecture with separate application and database components.
+
+AWS infrastructure was used for deployment, with MySQL supporting the application's operational data.
+
+---
+
+## 6. Database Design
+
+![COMS ERD](https://github.com/sophiayeji/coms/assets/125880712/b6da1d40-0d37-4d39-af99-399129bb0b44)
+
+The relational database was designed to support key operational processes including:
 
 - User and member management
 - Membership records
@@ -65,91 +94,162 @@ The relational database was designed to support key business processes including
 - Notice board content
 - Customer inquiries
 
-The ERD was designed to separate client-accessible functions from administrative functions while maintaining relationships between operational data.
+The ERD defines relationships between the major operational entities used by both the client and administrator functions.
 
 ---
 
-## 5. Core Features
+## 7. Core Features
 
-### Online Reservation & Admin Approval
+### 7.1 Online Reservation & Administrator Approval
 
-<!-- EXISTING RESERVATION / APPROVAL IMAGE OR VIDEO -->
+Clients can submit trial class reservation requests through the application.
 
-Clients can submit class reservation requests through the system.
+Administrators can review pending requests, view reservation details, and approve or reject requests through the administrator interface.
 
-Administrators can:
+![Reservation Approval Demo](https://github.com/sophiayeji/coms/assets/125880712/c565605b-902f-41c6-85e8-51186e946ef9)
 
-- Review pending reservation requests
-- Approve or reject requests
-- Review reservation details
-- Update approval status in the database
+![Reservation Approval](https://github.com/sophiayeji/coms/assets/125880712/bf4d5bcc-8f69-4a25-b577-0d5037b64922)
 
-The workflow connects the **Controller, Service, DAO, DTO, and database layers**.
+The approval workflow is implemented through the application layers:
+
+- `ExpClassManageController` handles administrator requests under `/admin/expclass`.
+- `ExpClassService.addApprovalYn()` processes approval status updates.
+- `ExpClassDAO.insertApprovalYn()` executes the SQL update to the `APPROVAL_YN` field in the `EXPERIENCE_CLASS` table.
+
+This workflow connects the Controller, Service, DAO, DTO, and database layers to support the reservation approval process.
 
 ---
 
-### Role-Based Access Control
+### 7.2 Administrator-Controlled Notice Board
 
-The application separates functionality between **Client** and **Administrator** users.
+The notice board provides different functionality based on user role.
 
-**Administrator access includes:**
+**Administrators can:**
+- Create posts
+- Edit posts
+- Delete posts
 
+**Clients can:**
+- View posts
+
+`WebMemberService` is used to verify user roles, while `AdminMemberController` restricts management functionality to authenticated administrator sessions.
+
+Separate JSP pages were also created for client and administrator views so that content management functions are available only through the administrator interface.
+
+---
+
+### 7.3 Administrator Activity Logging
+
+Spring AOP is used to log administrator activity and provide information about controller actions and method execution.
+
+![Administrator Activity Logging](https://github.com/sophiayeji/coms/assets/125880712/3bd61046-2edb-49db-b1e5-2f1d18912cc6.gif)
+
+This functionality was implemented to support monitoring and troubleshooting of administrative activity.
+
+---
+
+### 7.4 Automatic Member ID Generation
+
+Each new member is assigned a unique identifier using:
+
+`UUID.randomUUID().toString()`
+
+The generated UUID is stored in the DTO and used as a unique member identifier within the system.
+
+---
+
+### 7.5 Transaction Management & Data Integrity
+
+Spring transaction management is used to maintain data consistency during operations involving:
+
+- Member registration
+- Membership updates
+- Membership pauses
+- Locker assignments
+- Member photo information
+
+`@Transactional` and rollback handling are used so that processing errors do not leave incomplete or inconsistent records.
+
+The example below shows rollback behavior when invalid member information is submitted.
+
+![Transaction Rollback Test](https://github.com/sophiayeji/coms/assets/125880712/16199022-87bc-4fc5-af79-f666099cb333)
+
+---
+
+### 7.6 Membership Management
+
+The administrator interface provides member search and management functionality.
+
+![Membership Management](https://github.com/sophiayeji/coms/assets/125880712/cb12d201-7efd-480c-80ef-12b1b3e0a315)
+
+Examples include:
+
+- Member lookup
+- Membership status
+- Membership expiration
+- Payment history
+- Facility usage history
+
+---
+
+### 7.7 Sales & Membership Analytics
+
+The administrator interface also provides reporting functionality for sales and membership data.
+
+![Sales and Membership Analytics](https://github.com/sophiayeji/coms/assets/125880712/dcadc249-eba2-4ec1-b9f9-c086acecdec7)
+
+Reporting includes:
+
+- Current-month sales
+- Annual sales
+- Sales by date
+- New member counts
+- Canceled member counts
+- New member rate
+- Cancellation rate
+- Membership status
+
+The reporting functionality was designed to help administrators review operational performance and support data-informed business decisions.
+
+---
+
+### 7.8 Role-Based Access Control (RBAC)
+
+The application provides different functionality based on the user's role.
+
+**Administrator**
 - Membership management
 - Sales tracking
 - Facility reservations
 - Reservation approval
 - Administrative content management
 
-**Client access includes:**
-
+**Client**
 - Personal information
-- Class bookings
+- Trial class reservations
 - Facility reservations
 - Reservation history
 
-Spring Security and session-based authorization are used to control access to administrative functionality.
+The login process stores the user's role in the session. JSP conditional rendering using `<c:choose>` and `<c:when>` dynamically displays menu options based on that role.
+
+**Source Code:**
+
+- [WebMemberController.java](https://github.com/sophiayeji/coms/blob/master/src/main/java/com/application/coms/webmember/controller/WebMemberController.java)
+- [header.jsp](https://github.com/sophiayeji/coms/blob/master/src/main/webapp/WEB-INF/views/common/layout/header.jsp)
 
 ---
 
-### Admin Activity Logging
+### 7.9 Password Security
 
-<!-- EXISTING ADMIN LOGGING IMAGE -->
+`BcryptPasswordEncoder` is used in `WebMemberServiceImpl` to encrypt passwords before they are stored.
 
-Spring AOP is used to log administrative activity and support monitoring of administrator actions.
+![Encrypted Password Data](https://github.com/sophiayeji/coms/assets/125880712/51fa5d3d-e8e3-4584-8f53-06ee1e66c16c)
 
----
-
-### Transaction Management
-
-<!-- EXISTING TRANSACTION / ROLLBACK IMAGE -->
-
-Spring transaction management is used to maintain data consistency during operations such as member registration, membership updates, locker assignments, and file uploads.
-
-Rollback handling helps protect data integrity when processing errors occur.
+This prevents user passwords from being stored as plain text.
 
 ---
 
-## 6. Membership & Sales Analytics
-
-<!-- EXISTING ANALYTICS / REPORTING IMAGE -->
-
-The administrator interface includes member lookup and operational reporting functionality.
-
-Examples include:
-
-- Current-month sales
-- Annual sales
-- Membership status
-- New and canceled members
-- Membership expiration
-- Membership payment history
-- Facility usage history
-
-The reporting functionality was designed to turn operational data into useful information for gym management and business decision-making.
-
----
-
-## 7. What I Learned
+## 8. What I Learned
 
 This project gave me hands-on experience connecting **business requirements, application development, database design, and user workflows**.
 
@@ -166,23 +266,17 @@ Through the project, I gained practical experience with:
 - Testing and troubleshooting
 - Translating operational processes into system functionality
 
-My professional background is primarily in **business operations and data analytics rather than software engineering**. This project helped me better understand how business requirements, databases, application logic, and user workflows connect within an information system.
+As someone with a business background rather than a computer science degree, this project was especially valuable in helping me understand how business requirements connect with databases, application logic, system architecture, and user workflows.
+
+My current professional focus is **data analytics, business systems, reporting, and process improvement**, and this technical foundation continues to support the way I approach data and system-related work.
 
 ---
 
-## 8. Project Background
+## Project Background
 
-This project was completed in 2023 as part of my full-stack development training.
+This project was completed in **2023 as part of my full-stack development training** while I was also working full-time.
 
-My current professional focus is **data analytics, business systems, reporting, and process improvement**, with experience using Power BI, SQL, Excel, data modeling, data validation, and operational analytics.
-
----
-
-## 한국어
-
-The original Korean project documentation is provided below.
-
-<!-- KEEP ORIGINAL KOREAN README HERE -->
+It represents my hands-on technical training and project experience rather than my current primary professional role.
 -----------------------------------------------------------------------------------------------------------------
 목차	
 
