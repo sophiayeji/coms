@@ -1,6 +1,7 @@
 ##### COMS(CROSSFIT GYM MANAGEMENT SYSTEM)
 > AWS-based full-stack web application for CrossFit gym operations and membership management.
 
+1. English Translation Version 
 **Project Period:** July 6, 2023 – August 2, 2023  
 **Project Type:** Full-Stack Development Training Project  
 **Status:** The deployed website is no longer active. Source code and project documentation remain available in this repository.
@@ -277,6 +278,8 @@ My current professional focus is **data analytics, business systems, reporting, 
 This project was completed in **2023 as part of my full-stack development training** while I was also working full-time.
 
 It represents my hands-on technical training and project experience rather than my current primary professional role.
+
+2. Original Version - Korean 
 -----------------------------------------------------------------------------------------------------------------
 목차	
 
