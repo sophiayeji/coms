@@ -1,205 +1,119 @@
 ##### COMS(CROSSFIT GYM MANAGEMENT SYSTEM)
-# COMS — CrossFit Gym Management System
 
-> AWS-based full-stack web application for CrossFit gym operations and membership management.
-
-**Project Period:** July 6, 2023 – August 2, 2023  
-**Project Type:** Full-Stack Development Training Project  
-**Status:** The deployed website is no longer active. Source code and project documentation remain available in this repository.
+[English](#english) | [한국어](#korean)
 
 ---
 
-## Project Overview
+<a name="english"></a>
+# 🇺🇸 English
 
-COMS is a web-based CrossFit gym management system designed to support both customer-facing services and administrative operations.
+## 1. Overview
 
-I developed this project to apply the programming and database concepts I learned during my full-stack development training while building a system around realistic business processes.
+**Project:** AWS-based CrossFit Gym Management System  
+**Period:** July 6, 2023 – August 2, 2023
 
-The application includes separate **Client** and **Administrator** functionality for membership management, class reservations, facility management, approval workflows, and operational reporting.
+A full-stack gym management system developed using Java, Spring Framework,
+MySQL, and AWS.
 
----
-
-## Key Features
-
-### Client Functions
-- Member registration and login
-- Class and facility reservations
-- Personal information management
-- Reservation history
-- Membership information
-
-### Administrator Functions
-- Member search and management
-- Reservation review and approval
-- Membership and facility management
-- Sales and membership reporting
-- Administrative notice management
-- Role-based access control
-- Administrative activity logging
+The system provides separate Client and Administrator functions for
+membership management, reservations, approvals, facility management,
+and operational reporting.
 
 ---
 
-## Technology Stack
+## 2. System Architecture
 
-| Category | Technology |
-|---|---|
-| Backend | Java, JSP, Servlet |
-| Framework | Spring Framework |
-| Database | MySQL |
-| Database Access | MyBatis |
-| Architecture | MVC |
-| Cloud | AWS EC2, Amazon RDS |
-| Web Server | Apache Tomcat |
-| Frontend | HTML5, CSS3, JavaScript, jQuery |
-| Security | Spring Security |
-| Version Control | Git, GitHub |
-| Build Tool | Maven |
-| Data Transfer | AJAX, JSON |
-| Transaction Management | Spring Transaction |
+![System Architecture](YOUR_EXISTING_IMAGE_PATH)
+
+The application was deployed using AWS EC2 and Amazon RDS with
+Spring Framework, Apache Tomcat, and MySQL.
 
 ---
 
-## System Architecture
+## 3. Database Design
 
-The application was deployed using AWS infrastructure with separate application and database components.
+![ERD](YOUR_EXISTING_ERD_IMAGE_PATH)
 
-- **Application Server:** Amazon EC2
-- **Database:** Amazon RDS / MySQL
-- **Application Framework:** Spring Framework
-- **Web Application Server:** Apache Tomcat
-- **Architecture:** MVC
-
-> See the system architecture diagram included in the project documentation for additional details.
+The relational database supports membership, reservations,
+facility usage, lockers, administrative access, and customer inquiries.
 
 ---
 
-## Database Design
+## 4. Reservation & Approval Workflow
 
-The system uses a relational database structure to manage:
+![Reservation Approval Workflow](YOUR_EXISTING_WORKFLOW_IMAGE_PATH)
 
-- User accounts
-- Gym members
-- Membership records
-- Class reservations
-- Facility reservations
-- Locker assignments
-- Administrative access
-- Notice board content
-- Customer inquiries
-
-The database was designed using MySQL and documented through an ERD.
-
----
-
-## Core Functionality
-
-### 1. Online Reservation & Admin Approval
-
-Customers can submit class reservation requests through the client application.
-
-Administrators can:
-
-- Review pending requests
-- Approve or reject reservations
-- View reservation details
-- Update approval status in the database
+Customers can submit reservation requests, while administrators can
+review, approve, or reject them.
 
 The workflow connects the Controller, Service, DAO, DTO, and database layers.
 
 ---
 
-### 2. Role-Based Access Control
+## 5. Admin Activity Logging & Transaction Management
 
-The system separates permissions between **Client** and **Administrator** users.
+![Admin Logging](YOUR_EXISTING_LOG_IMAGE_PATH)
 
-**Administrators can access:**
-- Membership management
-- Sales tracking
-- Facility reservations
-- Administrative content management
+Administrative activity is logged using Spring AOP.
 
-**Clients can access:**
-- Personal information
-- Class bookings
-- Reservation history
+![Transaction Testing](YOUR_EXISTING_TRANSACTION_IMAGE_PATH)
 
-Spring Security and session-based authorization are used to control access to administrative functionality.
+Spring transaction management and rollback handling are used to
+maintain data consistency when errors occur.
 
 ---
 
-### 3. Transaction Management
+## 6. Membership & Sales Analytics
 
-Spring transaction management is used to maintain data consistency during operations such as:
+![Membership Analytics](YOUR_EXISTING_ANALYTICS_IMAGE_PATH)
 
-- Member registration
-- Membership updates
-- Locker assignments
-- File and photo uploads
+The administrator interface provides operational reporting including:
 
-Rollback handling helps protect data integrity when processing errors occur.
-
----
-
-### 4. Administrative Activity Logging
-
-Spring AOP is used to record administrative activity.
-
-The system logs information related to administrator actions and controller activity to support monitoring and troubleshooting.
-
----
-
-### 5. Membership & Sales Analytics
-
-The administrator interface includes operational reporting and member lookup functionality.
-
-Examples include:
-
-- Current-month sales
-- Annual sales
+- Current-month and annual sales
 - Membership status
 - New and canceled members
 - Membership expiration
 - Payment history
 - Facility usage history
 
-This functionality was designed to turn operational data into information that could support gym management decisions.
+---
+
+## 7. Technology Stack
+
+| Area | Technologies |
+|---|---|
+| Backend | Java, JSP, Servlet |
+| Framework | Spring Framework |
+| Database | MySQL, MyBatis |
+| Cloud | AWS EC2, Amazon RDS |
+| Frontend | HTML5, CSS3, JavaScript, jQuery |
+| Security | Spring Security |
+| Architecture | MVC |
+| Version Control | Git, GitHub |
+| Build | Maven |
+| Data | AJAX, JSON |
 
 ---
 
-## What I Learned
+## 8. What I Learned
 
-This project gave me hands-on experience connecting business requirements with application and database design.
+This project gave me hands-on experience connecting business requirements
+with application and database design.
 
-Through the project, I gained practical experience with:
+I gained practical experience with database modeling, SQL/MySQL,
+Java/Spring development, MVC architecture, AWS deployment,
+role-based system design, transaction management, testing,
+and Git/GitHub version control.
 
-- Relational database modeling
-- SQL and MySQL
-- Java/Spring application development
-- MVC architecture
-- AWS deployment
-- Role-based system design
-- Transaction management
-- Git/GitHub version control
-- Testing and troubleshooting
-- Translating operational processes into system functionality
-
-My professional background is primarily in business operations and data analytics rather than software engineering. This project helped me better understand how business requirements, databases, application logic, and user workflows connect within an information system.
+My professional focus is now data analytics, business systems,
+reporting, and process improvement.
 
 ---
 
-## Project Background
+<a name="korean"></a>
+# 🇰🇷 한국어
 
-This project was completed in 2023 as part of my full-stack development training.
-
-My current professional focus is **data analytics, business systems, reporting, and process improvement**, using tools including Power BI, SQL, Excel, and data modeling.
-
----
-
-## Language
-
-This README is provided in English for portfolio purposes.
-
-For the original Korean project documentation, see the Korean README/documentation in this repository.
+<!-- KEEP YOUR EXISTING KOREAN README BELOW THIS LINE -->
 -----------------------------------------------------------------------------------------------------------------
 목차	
 
